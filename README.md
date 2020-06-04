@@ -76,7 +76,6 @@ Date,1 Week,1 Month,2 Months,3 Months,6 Months
 ---
 #### NIBOR w/panel banks
 
-##### Panel Banks
 - **DNBB**: DNB Bank ASA  
 - **DSKE**: Danske Bank A/S  
 - **HAND**: Svenska Handelsbanken AB  
