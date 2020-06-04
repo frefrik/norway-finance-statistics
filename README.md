@@ -1,7 +1,4 @@
-# finance-ibor-dev
-
-## Description
-Norwegian Financial Statistics
+# norway-finance-statistics
 
 ## Overview
 
