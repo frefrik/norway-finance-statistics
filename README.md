@@ -2,16 +2,15 @@
 
 ## Overview
 
-| Dataset                                                            | Data Source                                               | Download                           |  Preview                               |
-|:-------------------------------------------------------------------|:----------------------------------------------------------|:----------------------------------:|:--------------------------------------:|
-| [Key policy rate](#key-policy-rate)                                | Norges Bank                                               | [csv](data/no_keyPolicyRate.csv)   | [preview](data/no_keyPolicyRate.csv)   |
-| [NOWA](#nowa---norwegian-overnight-weighted-average)               | Norges Bank                                               | [csv](data/no_nowa.csv)            | [preview](data/no_nowa.csv)            |
-| [Treasury bills](#treasury-bills)                                  | Norges Bank                                               | [csv](data/no_treasuryBills.csv)   | [preview](data/no_treasuryBills.csv)   |
-| [Government bonds](#government-bonds)                              | Norges Bank                                               | [csv](data/no_governmentBonds.csv) | [preview](data/no_governmentBonds.csv) |
-| [NIBOR](#nibor---norwegian-inter-bank-offered-rate)                | Norske Finansielle Referanser AS (NoRe) / Norges Bank     | [csv](data/no_nibor.csv)           | [preview](data/no_nibor.csv)           |
-| [NIBOR w/ panel banks](#nibor---norwegian-inter-bank-offered-rate) | Norske Finansielle Referanser AS (NoRe)                   | [csv](data/no_nibor_panel.csv)     | [preview](data/no_nibor_panel.csv)     |
-| [Exchange Rates](#exchange-rates)                                  | Norges Bank                                               | [csv](data/no_exchangeRates.csv)   | [preview](data/no_exchangeRates.csv)   |
-
+| Dataset                                               | Data Source                                               | Download                           |  Preview                               |
+|:------------------------------------------------------|:----------------------------------------------------------|:----------------------------------:|:--------------------------------------:|
+| [Key policy rate](#key-policy-rate)                   | Norges Bank                                               | [csv](data/no_keyPolicyRate.csv)   | [preview](data/no_keyPolicyRate.csv)   |
+| [NOWA](#nowa---norwegian-overnight-weighted-average)  | Norges Bank                                               | [csv](data/no_nowa.csv)            | [preview](data/no_nowa.csv)            |
+| [Treasury bills](#treasury-bills)                     | Norges Bank                                               | [csv](data/no_treasuryBills.csv)   | [preview](data/no_treasuryBills.csv)   |
+| [Government bonds](#government-bonds)                 | Norges Bank                                               | [csv](data/no_governmentBonds.csv) | [preview](data/no_governmentBonds.csv) |
+| [NIBOR](#nibor)                                       | Norske Finansielle Referanser AS (NoRe) / Norges Bank     | [csv](data/no_nibor.csv)           | [preview](data/no_nibor.csv)           |
+| [NIBOR w/panel banks](#nibor-wpanel-banks)            | Norske Finansielle Referanser AS (NoRe)                   | [csv](data/no_nibor_panel.csv)     | [preview](data/no_nibor_panel.csv)     |
+| [Exchange Rates](#exchange-rates)                     | Norges Bank                                               | [csv](data/no_exchangeRates.csv)   | [preview](data/no_exchangeRates.csv)   |
 ## Datasets                                    
 
 #### Key policy rate
@@ -56,8 +55,8 @@ Date,3 years,5 years,10 years
 ...
 ```
 ---
-#### NIBOR - Norwegian Inter Bank Offered Rate
-Nibor is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
+#### NIBOR
+Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
 
 ```
 Date,1 Week,1 Month,2 Months,3 Months,6 Months
@@ -65,6 +64,10 @@ Date,1 Week,1 Month,2 Months,3 Months,6 Months
 1986-01-03,12.59994,12.52899,,12.83989,12.92999
 ...
 ```
+---
+#### NIBOR w/panel banks
+Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
+
 ```
 Date,Calculation Date,Tenor,Fixing Rate,DNBB,DSKE,HAND,NORD,SEBB,SWED
 2020-01-02,2 Jan 2020,1 Week,1.57,1.55,1.53,1.67,1.57,1.58,1.57
