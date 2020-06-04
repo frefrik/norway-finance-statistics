@@ -1,4 +1,4 @@
-# norway-finance-statistics
+# Norway Finance Statistics
 
 ## Overview
 
