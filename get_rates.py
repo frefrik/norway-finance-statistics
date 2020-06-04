@@ -44,7 +44,6 @@ def nibor():
             day = date_last + timedelta(days=i)
             res = requests.post('https://rates.referanserenter.no/submit.php', data={'market':'NIBOR', 'date':day})
             load = json.loads(res.content)
-            print(load)
 
             if load['status'] == 'ok':
                 print(day, 'Fetching new data')
