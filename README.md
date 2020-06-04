@@ -2,15 +2,24 @@
 
 ## Overview
 
-| Dataset                                               | Data Source                                               | Download                           |  Preview                               |
-|:------------------------------------------------------|:----------------------------------------------------------|:----------------------------------:|:--------------------------------------:|
-| [Key policy rate](#key-policy-rate)                   | Norges Bank                                               | [csv](data/no_keyPolicyRate.csv)   | [preview](data/no_keyPolicyRate.csv)   |
-| [NOWA](#nowa---norwegian-overnight-weighted-average)  | Norges Bank                                               | [csv](data/no_nowa.csv)            | [preview](data/no_nowa.csv)            |
-| [Treasury bills](#treasury-bills)                     | Norges Bank                                               | [csv](data/no_treasuryBills.csv)   | [preview](data/no_treasuryBills.csv)   |
-| [Government bonds](#government-bonds)                 | Norges Bank                                               | [csv](data/no_governmentBonds.csv) | [preview](data/no_governmentBonds.csv) |
-| [NIBOR](#nibor)                                       | Norske Finansielle Referanser AS (NoRe) / Norges Bank     | [csv](data/no_nibor.csv)           | [preview](data/no_nibor.csv)           |
-| [NIBOR w/panel banks](#nibor-wpanel-banks)            | Norske Finansielle Referanser AS (NoRe)                   | [csv](data/no_nibor_panel.csv)     | [preview](data/no_nibor_panel.csv)     |
-| [Exchange Rates](#exchange-rates)                     | Norges Bank                                               | [csv](data/no_exchangeRates.csv)   | [preview](data/no_exchangeRates.csv)   |
+| Dataset                                               | Data Source                                               | Download    |  Preview                               |
+|:------------------------------------------------------|:----------------------------------------------------------|:-----------:|:--------------------------------------:|
+| [Key policy rate](#key-policy-rate)                   | Norges Bank                                               | [csv][1]    | [preview](data/no_keyPolicyRate.csv)   |
+| [NOWA](#nowa---norwegian-overnight-weighted-average)  | Norges Bank                                               | [csv][2]    | [preview](data/no_nowa.csv)            |
+| [Treasury bills](#treasury-bills)                     | Norges Bank                                               | [csv][3]    | [preview](data/no_treasuryBills.csv)   |
+| [Government bonds](#government-bonds)                 | Norges Bank                                               | [csv][4]    | [preview](data/no_governmentBonds.csv) |
+| [NIBOR](#nibor)                                       | Norske Finansielle Referanser AS (NoRe) / Norges Bank     | [csv][5]    | [preview](data/no_nibor.csv)           |
+| [NIBOR w/panel banks](#nibor-wpanel-banks)            | Norske Finansielle Referanser AS (NoRe)                   | [csv][6]    | [preview](data/no_nibor_panel.csv)     |
+| [Exchange Rates](#exchange-rates)                     | Norges Bank                                               | [csv][7]    | [preview](data/no_exchangeRates.csv)   |
+
+[1]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv
+[2]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv
+[3]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv
+[4]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv
+[5]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv
+[6]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv
+[7]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv
+
 ## Datasets                                    
 
 #### Key policy rate
