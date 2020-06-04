@@ -1,6 +1,7 @@
 name: Scheduled data update
-on: [push]
-
+on: 
+  schedule:
+    - cron:  '* 0,12 * * *'
 jobs:
   update-data:
     name: Update data
