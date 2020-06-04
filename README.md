@@ -66,7 +66,14 @@ Date,1 Week,1 Month,2 Months,3 Months,6 Months
 ```
 ---
 #### NIBOR w/panel banks
-Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
+
+##### Panel Banks
+- **DNBB**: DNB Bank ASA  
+- **DSKE**: Danske Bank A/S  
+- **HAND**: Svenska Handelsbanken AB  
+- **NORD**: Nordea Bank ABP  
+- **SEBB**: SEB AB  
+- **SWED**: Swedbank AB
 
 ```
 Date,Calculation Date,Tenor,Fixing Rate,DNBB,DSKE,HAND,NORD,SEBB,SWED
