@@ -231,9 +231,9 @@ def exchangeRates():
         print('Data already up to date: exchangeRates')
 
 if __name__ == '__main__':
-    #nibor()
-    #keyPolicyRate()
-    #nowa()
-    #treasuryBills()
-    #governmentBonds()
-    #exchangeRates()
+    nibor()
+    keyPolicyRate()
+    nowa()
+    treasuryBills()
+    governmentBonds()
+    exchangeRates()
