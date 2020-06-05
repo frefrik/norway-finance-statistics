@@ -6,7 +6,7 @@ from os import path
 
 def write_df(desc, df):
     caller = desc
-    df.to_csv('data/no_' + caller + '.csv', encoding='utf-8', index=False)
+    df.to_csv('./data/no_' + caller + '.csv', encoding='utf-8', index=False)
     try:
         print('DataFrame updated: {}'.format(caller))
     except:
@@ -20,8 +20,8 @@ def get_dates(lastdate):
     return date_today, delta_date, delta_days
 
 def nibor():
-    if path.exists('data/no_nibor_panel.csv') == True:
-        df_panel = pd.read_csv('data/no_nibor_panel.csv', parse_dates=['Date'])
+    if path.exists('./data/no_nibor_panel.csv') == True:
+        df_panel = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'])
         date_last = max(df_panel['Date']).date() + timedelta(days=1)
     else:
         df_panel = pd.DataFrame()
@@ -71,8 +71,8 @@ def nibor():
         print('Data already up to date: nibor')
 
 def keyPolicyRate():
-    if path.exists('data/no_keyPolicyRate.csv') == True:
-        df = pd.read_csv('data/no_keyPolicyRate.csv', parse_dates=['Date'])
+    if path.exists('./data/no_keyPolicyRate.csv') == True:
+        df = pd.read_csv('./data/no_keyPolicyRate.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -97,8 +97,8 @@ def keyPolicyRate():
         print('Data already up to date: keyPolicyRate')
 
 def nowa():
-    if path.exists('data/no_nowa.csv') == True:
-        df = pd.read_csv('data/no_nowa.csv', parse_dates=['Date'])
+    if path.exists('./data/no_nowa.csv') == True:
+        df = pd.read_csv('./data/no_nowa.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -120,12 +120,11 @@ def nowa():
                                 'OBS_VALUE': 'Value',
                                 'Calculation Method': 'Qualifier'},
                      inplace=True)
-        intcols = ['Volume', 'Banks lending', 'Banks borrowing', 'Transactions']
+                     
         qualifier = df_new[['Date', 'Qualifier']].loc[df_new['Unit of Measure'] == 'Rate']
         df_pivot = pd.pivot_table(df_new, index='Date', columns='Unit of Measure', values='Value')
-        df_pivot[intcols] = df_pivot[intcols].fillna(0).astype(int)
         df_new = pd.merge(df_pivot, qualifier, how='right', on=['Date'])
-        df_new = df_new.reindex(columns=['Date','Rate','Volume','Qualifier','Banks lending', 'Banks borrowing', 'Transactions']).replace('Alternative method', 'Alternative')
+        df_new = df_new.reindex(columns=['Date','Rate','Volume','Qualifier','Banks lending', 'Banks borrowing', 'Transactions']).replace('Alternative method', 'Alternative').fillna(0)
         
         df = df.append(df_new, ignore_index=True)
         write_df('nowa', df)
@@ -133,8 +132,8 @@ def nowa():
         print('Data already up to date: nowa')
 
 def treasuryBills():
-    if path.exists('data/no_treasuryBills.csv') == True:
-        df = pd.read_csv('data/no_treasuryBills.csv', parse_dates=['Date'])
+    if path.exists('./data/no_treasuryBills.csv') == True:
+        df = pd.read_csv('./data/no_treasuryBills.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -164,8 +163,8 @@ def treasuryBills():
         print('Data already up to date: treasuryBills')
 
 def governmentBonds():
-    if path.exists('data/no_governmentBonds.csv') == True:
-        df = pd.read_csv('data/no_governmentBonds.csv', parse_dates=['Date'])
+    if path.exists('./data/no_governmentBonds.csv') == True:
+        df = pd.read_csv('./data/no_governmentBonds.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -196,8 +195,8 @@ def governmentBonds():
         print('Data already up to date: governmentBonds')
 
 def exchangeRates():
-    if path.exists('data/no_exchangeRates.csv') == True:
-        df = pd.read_csv('data/no_exchangeRates.csv', parse_dates=['Date'])
+    if path.exists('./data/no_exchangeRates.csv') == True:
+        df = pd.read_csv('./data/no_exchangeRates.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -230,9 +229,9 @@ def exchangeRates():
         print('Data already up to date: exchangeRates')
 
 if __name__ == '__main__':
-    nibor()
-    keyPolicyRate()
+    #nibor()
+    #keyPolicyRate()
     nowa()
-    treasuryBills()
-    governmentBonds()
-    exchangeRates()
+    #treasuryBills()
+    #governmentBonds()
+    #exchangeRates()
