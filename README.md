@@ -2,15 +2,15 @@
 
 ## Overview
 
-| Dataset                                               | Data Source                                           | Date Range                    | Download    |  Preview                               |
-|:------------------------------------------------------|:------------------------------------------------------|:------------------------------|:-----------:|:--------------------------------------:|
-| [Key policy rate](#key-policy-rate)                   | Norges Bank                                           | 1991 - Present                |  [csv][1]   | [preview](data/no_keyPolicyRate.csv)   |
-| [NOWA](#nowa---norwegian-overnight-weighted-average)  | Norges Bank                                           | 2011 - Present                |  [csv][2]   | [preview](data/no_nowa.csv)            |
-| [Treasury bills](#treasury-bills)                     | Norges Bank                                           | 2003 - Present                |  [csv][3]   | [preview](data/no_treasuryBills.csv)   |
-| [Government bonds](#government-bonds)                 | Norges Bank                                           | 1986 - Present                |  [csv][4]   | [preview](data/no_governmentBonds.csv) |
-| [NIBOR](#nibor)                                       | Norske Finansielle Referanser AS (NoRe) / Norges Bank | 1986 - 2013<br>2020 - Present |  [csv][5]   | [preview](data/no_nibor.csv)           |
-| [NIBOR w/panel banks](#nibor-wpanel-banks)            | Norske Finansielle Referanser AS (NoRe)               | 2020 - Present                |  [csv][6]   | [preview](data/no_nibor_panel.csv)     |
-| [Exchange Rates](#exchange-rates)                     | Norges Bank                                           | 1980 - Present                |  [csv][7]   | [preview](data/no_exchangeRates.csv)   |
+| Dataset                                               | Data Source        | Date Range                    | Download    |  Preview                               |
+|:------------------------------------------------------|:-------------------|:------------------------------|:-----------:|:--------------------------------------:|
+| [Key policy rate](#key-policy-rate)                   | Norges Bank        | 1991 - Present                |  [csv][1]   | [preview](data/no_keyPolicyRate.csv)   |
+| [NOWA](#nowa---norwegian-overnight-weighted-average)  | Norges Bank        | 2011 - Present                |  [csv][2]   | [preview](data/no_nowa.csv)            |
+| [Treasury bills](#treasury-bills)                     | Norges Bank        | 2003 - Present                |  [csv][3]   | [preview](data/no_treasuryBills.csv)   |
+| [Government bonds](#government-bonds)                 | Norges Bank        | 1986 - Present                |  [csv][4]   | [preview](data/no_governmentBonds.csv) |
+| [NIBOR](#nibor)                                       | Norges Bank / NoRe | 1986 - 2013<br>2020 - Present |  [csv][5]   | [preview](data/no_nibor.csv)           |
+| [NIBOR w/panel banks](#nibor-wpanel-banks)            | NoRe               | 2020 - Present                |  [csv][6]   | [preview](data/no_nibor_panel.csv)     |
+| [Exchange Rates](#exchange-rates)                     | Norges Bank        | 1980 - Present                |  [csv][7]   | [preview](data/no_exchangeRates.csv)   |
 
 [1]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv
 [2]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv
@@ -65,6 +65,8 @@ Date,3 years,5 years,10 years
 ```
 ---
 #### NIBOR
+Data source: *Norske Finansielle Referanser AS (NoRe)*
+
 Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
 
 ```
@@ -75,6 +77,7 @@ Date,1 Week,1 Month,2 Months,3 Months,6 Months
 ```
 ---
 #### NIBOR w/panel banks
+Data source: *Norske Finansielle Referanser AS (NoRe)*
 
 - **DNBB**: DNB Bank ASA  
 - **DSKE**: Danske Bank A/S  
