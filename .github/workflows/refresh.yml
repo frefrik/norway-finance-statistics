@@ -1,7 +1,7 @@
 name: Scheduled data update
-on: 
-  schedule:
-    - cron:  '5 0,12 * * *'
+on: [push]
+  #schedule:
+  #  - cron:  '5 0,12 * * *'
 jobs:
   update-data:
     name: Update data
@@ -16,8 +16,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
-    - name: Run get_rates.py
+    - name: Install node
+      run: |
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+        apt-get install -y --no-install-recommends nodejs
+    - name: Install required npm packages
+      run: |
+        sudo npm -g config set user root \
+        && sudo npm install -g canvas \
+        && sudo npm install -g vega vega-lite vega-cli
+    - name: Update data
       run: python get_rates.py
+    - name: Update graphs
+      run: python graphs.py
     - name: Commit changes
       uses: EndBug/add-and-commit@v4
       with:
