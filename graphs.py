@@ -56,9 +56,7 @@ def nibor_panel_3m():
         df = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'], index_col=['Date'], usecols=['Date', 'Tenor', 'DNBB', 'DSKE', 'HAND', 'NORD', 'SEBB', 'SWED'])
     
     df = df.loc[df['Tenor'] == '3 Months'].last('60D').reset_index()
-
     df = df.melt(id_vars=['Date', 'Tenor'], var_name='Bank', value_name='Rate')
-    df = df[df.Date >= '2020-01-01']
     
     chart = alt.Chart(df, title='NIBOR Panel Banks (3 Months) - Last 60 days').mark_line().encode(
         x=alt.X('monthdate(Date):O', title='Date'),
