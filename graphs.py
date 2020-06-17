@@ -1,10 +1,6 @@
 import pandas as pd
 import altair as alt
-import requests
-import json
-import datetime
 from os import path
-from datetime import date, timedelta, datetime
 
 def keyPolicyRate():
     print('Generating graph: keyPolicyRate ...', end='', flush=True)
