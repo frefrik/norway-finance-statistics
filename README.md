@@ -1,4 +1,7 @@
-# Norway Finance Statistics
+# Norway - Finance Statistics
+
+A collection of Norwegian financial data.  
+The datasets in this repository are automaticly updated every day at **2:05 AM** and **2:05 PM** (CEST).
 
 ## Overview
 
