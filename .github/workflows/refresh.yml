@@ -19,7 +19,7 @@ jobs:
     - name: Install node
       run: |
         curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
-        apt-get install -y --no-install-recommends nodejs
+        sudo apt-get install -y --no-install-recommends nodejs
     - name: Install required npm packages
       run: |
         sudo npm -g config set user root \
