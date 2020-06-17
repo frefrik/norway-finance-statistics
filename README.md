@@ -106,6 +106,8 @@ Date,3 years,5 years,10 years
 1986-01-10,,13.64,13.48
 ...
 ```
+![Government bonds](img/governmentBonds.png)
+
 ---
 ### Exchange Rates
 Norges Bank's exchange rates are middle rates, i.e. the mid-point between buying and selling rates in the interbank market at a given time.

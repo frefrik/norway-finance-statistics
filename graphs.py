@@ -120,9 +120,34 @@ def treasuryBills():
     chart.save(filename)
     print('[OK]')
 
+def governmentBonds():
+    print('Generating graph: governmentBonds .', end='', flush=True)
+    filename = './img/governmentBonds.png'
+
+    if path.exists('./data/no_governmentBonds.csv') == True:
+        df = pd.read_csv('./data/no_governmentBonds.csv', parse_dates=['Date'])
+
+    df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
+    df = df[df.Date >= '2020-01-01']
+
+    chart = alt.Chart(df, title='Government bonds - YTD (2020)').mark_line().encode(
+        x=alt.X('monthdate(Date):T', title='Date'),
+        y=alt.Y('Rate:Q', title='Rate',
+                scale=alt.Scale(zero=False),
+                axis=alt.Axis(orient='right')),
+        color=alt.Color('Tenor', legend=alt.Legend(orient='left'))
+    ).properties(
+        width=1200,
+        height=600
+    )
+
+    chart.save(filename)
+    print('[OK]')
+
 if __name__ == "__main__":
     keyPolicyRate()
     nibor()
     nibor_panel_3m()
     exchangeRates()
     treasuryBills()
+    governmentBonds()
