@@ -29,13 +29,15 @@ jobs:
       run: python get_rates.py
     - name: Update graphs
       run: python graphs.py
+    - name: Update README
+      run: python update_readme.py --rewrite
     - name: Commit changes
       uses: EndBug/add-and-commit@v4
       with:
         author_name: GitHub Action
         author_email: action@github.com
         message: "Scheduled data update"
-        add: "data/*.csv img/*.png"
+        add: "data/*.csv img/*.png README.md"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Push changes
