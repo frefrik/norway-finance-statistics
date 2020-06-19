@@ -8,23 +8,15 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 ## Overview
 
 <!-- table starts -->
-| Dataset                                               | Data Source        | Date Range                    | Download    |  Preview                               |
-|:------------------------------------------------------|:-------------------|:------------------------------|:-----------:|:--------------------------------------:|
-| [NIBOR](#nibor)                                       | Norges Bank<br>Norske Finansielle Referanser AS | 1986 - 2013<br>2020 - Present |  [csv][1]   | [preview](data/no_nibor.csv)           |
-| [NIBOR w/panel banks](#nibor-wpanel-banks)            | Norske Finansielle Referanser AS               | 2020 - Present                |  [csv][2]   | [preview](data/no_nibor_panel.csv)     |
-| [Key policy rate](#key-policy-rate)                   | Norges Bank        | 1991 - Present                |  [csv][3]   | [preview](data/no_keyPolicyRate.csv)   |
-| [NOWA](#nowa---norwegian-overnight-weighted-average)  | Norges Bank        | 2011 - Present                |  [csv][4]   | [preview](data/no_nowa.csv)            |
-| [Treasury bills](#treasury-bills)                     | Norges Bank        | 2003 - Present                |  [csv][5]   | [preview](data/no_treasuryBills.csv)   |
-| [Government bonds](#government-bonds)                 | Norges Bank        | 1986 - Present                |  [csv][6]   | [preview](data/no_governmentBonds.csv) |
-| [Exchange Rates](#exchange-rates)                     | Norges Bank        | 1980 - Present                |  [csv][7]   | [preview](data/no_exchangeRates.csv)   |
-
-[1]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv
-[2]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv
-[3]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv
-[4]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv
-[5]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv
-[6]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv
-[7]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv
+|Dataset|Data Source|Date Range|Updated|Download|Preview|
+| :--- | :--- | :--- | :--- | :--- | :--- |
+|[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
+|[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
+|[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
+|[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
+|[Treasury bills](#treasury-bills)|Norges Bank|2003 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
+|[Government bonds](#government-bonds)|Norges Bank|1986 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv)|[<center>preview</center>](data/no_governmentBonds.csv)|
+|[Exchange Rates](#exchange-rates)|Norges Bank|1980 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv)|[<center>preview</center>](data/no_exchangeRates.csv)|
 <!-- table ends -->
 
 ## Datasets                                    

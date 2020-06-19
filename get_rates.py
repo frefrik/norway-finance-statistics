@@ -19,6 +19,16 @@ def get_dates(lastdate):
 
     return date_today, delta_date, delta_days
 
+def write_last_updated(desc):
+    with open('datasets.json', 'r') as read_file:
+        datasets = json.load(read_file)
+
+    dataset = list(filter(lambda x:x["dataset"]==desc,datasets))
+    dataset[0]['last_updated'] = str(date.today())
+
+    with open('datasets.json', 'w') as f:
+        json.dump(datasets, f, indent=2)
+
 def nibor():
     if path.exists('./data/no_nibor_panel.csv') == True:
         df_panel = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'])
@@ -66,7 +76,9 @@ def nibor():
             df_fixed = df_fixed.sort_values(by='Date', ignore_index=True)
 
         write_df('nibor', df_fixed)
+        write_last_updated('NIBOR')
         write_df('nibor_panel', df_panel)
+        write_last_updated('NIBOR w/panel banks')
     else:
         print('Data already up to date: nibor')
 
@@ -99,6 +111,7 @@ def keyPolicyRate():
 
             df = df.append(df_new, ignore_index=True)
             write_df('keyPolicyRate', df)
+            write_last_updated('Key policy rate')
     else:
         print('Data already up to date: keyPolicyRate')
 
@@ -140,6 +153,7 @@ def nowa():
             
             df = df.append(df_new, ignore_index=True)
             write_df('nowa', df)
+            write_last_updated('NOWA')
     else:
         print('Data already up to date: nowa')
 
@@ -177,6 +191,7 @@ def treasuryBills():
 
             df = df.append(df_new, ignore_index=True)
             write_df('treasuryBills', df)
+            write_last_updated('Treasury bills')
     else:
         print('Data already up to date: treasuryBills')
 
@@ -215,6 +230,7 @@ def governmentBonds():
             df = df.append(df_new, ignore_index=True)
 
             write_df('governmentBonds', df)
+            write_last_updated('Government bonds')
     else:
         print('Data already up to date: governmentBonds')
 
@@ -255,6 +271,7 @@ def exchangeRates():
             df = df.append(df_new, ignore_index=True)
 
             write_df('exchangeRates', df)
+            write_last_updated('Exchange Rates')
     else:
         print('Data already up to date: exchangeRates')
 
