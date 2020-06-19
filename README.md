@@ -1,6 +1,5 @@
 # Norway - Finance Statistics
-[![Actions Status](https://github.com/frefrik/norway-finance-statistics/workflows/Scheduled%20data%20update/badge.svg)](https://github.com/frefrik/norway-finance-statistics/actions)
-
+[![Scheduled data update](https://github.com/frefrik/norway-finance-statistics/workflows/Scheduled%20data%20update/badge.svg?branch=master&event=schedule)](https://github.com/frefrik/norway-finance-statistics/actions?query=workflow%3A%22Scheduled+data+update%22+event%3Aschedule+branch%3Amaster)
 ## Description
 A collection of Norwegian financial data.  
 The datasets in this repository are automaticly updated every day at **2:05 AM** and **2:05 PM** (CEST).
@@ -19,7 +18,7 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 |[Exchange Rates](#exchange-rates)|Norges Bank|1980 - Present|2020-06-19|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv)|[<center>preview</center>](data/no_exchangeRates.csv)|
 <!-- table ends -->
 
-## Datasets                                    
+## Datasets
 ### NIBOR
 Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
 
