@@ -1,5 +1,5 @@
 # Norway - Finance Statistics
-[![Actions Status](https://github.com/frefrik/norway-finance-statistics/workflows/Scheduled%20data%20update/badge.svg)](https://github.com/{owner}/{repo}/actions)
+[![Actions Status](https://github.com/frefrik/norway-finance-statistics/workflows/Scheduled%20data%20update/badge.svg)](https://github.com/frefrik/norway-finance-statistics/actions)
 
 ## Description
 A collection of Norwegian financial data.  
