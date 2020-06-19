@@ -1,10 +1,13 @@
 # Norway - Finance Statistics
+[![Actions Status](https://github.com/frefrik/norway-finance-statistics/workflows/Scheduled%20data%20update/badge.svg)](https://github.com/{owner}/{repo}/actions)
 
+## Description
 A collection of Norwegian financial data.  
 The datasets in this repository are automaticly updated every day at **2:05 AM** and **2:05 PM** (CEST).
 
 ## Overview
 
+<!-- table starts -->
 | Dataset                                               | Data Source        | Date Range                    | Download    |  Preview                               |
 |:------------------------------------------------------|:-------------------|:------------------------------|:-----------:|:--------------------------------------:|
 | [NIBOR](#nibor)                                       | Norges Bank<br>Norske Finansielle Referanser AS | 1986 - 2013<br>2020 - Present |  [csv][1]   | [preview](data/no_nibor.csv)           |
@@ -22,6 +25,7 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 [5]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv
 [6]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv
 [7]: https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv
+<!-- table ends -->
 
 ## Datasets                                    
 ### NIBOR
