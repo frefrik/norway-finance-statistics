@@ -37,7 +37,7 @@ jobs:
         author_name: GitHub Action
         author_email: action@github.com
         message: "Scheduled data update"
-        add: "data/*.csv img/*.png README.md"
+        add: "data/*.csv img/*.png datasets.json README.md"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Push changes
