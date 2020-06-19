@@ -4,13 +4,12 @@ import requests
 from datetime import date, timedelta, datetime
 from os import path
 
-def write_df(desc, df):
-    caller = desc
-    df.to_csv('./data/no_' + caller + '.csv', encoding='utf-8', index=False)
+def write_df(dataset, df):
     try:
-        print('DataFrame updated: {}'.format(caller))
+        df.to_csv('./data/' + dataset + '.csv', encoding='utf-8', index=False)
+        print('DataFrame updated: {}'.format(dataset))
     except:
-        pass
+        print('write_df: Error')
 
 def get_dates(lastdate):
     date_today = date.today()
@@ -19,19 +18,21 @@ def get_dates(lastdate):
 
     return date_today, delta_date, delta_days
 
-def write_last_updated(desc):
+def write_last_updated(dataset):
     with open('datasets.json', 'r') as read_file:
         datasets = json.load(read_file)
 
-    dataset = list(filter(lambda x:x["dataset"]==desc,datasets))
-    dataset[0]['last_updated'] = str(date.today())
+    array = list(filter(lambda x:x['dataset']==dataset,datasets))
+    array[0]['last_updated'] = str(date.today())
 
     with open('datasets.json', 'w') as f:
         json.dump(datasets, f, indent=2)
 
 def nibor():
-    if path.exists('./data/no_nibor_panel.csv') == True:
-        df_panel = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'])
+    dataset1 = 'no_nibor'
+    dataset2 = 'no_nibor_panel'
+    if path.exists('./data/' + dataset2 + '.csv') == True:
+        df_panel = pd.read_csv('./data/' + dataset2 + '.csv', parse_dates=['Date'])
         date_last = max(df_panel['Date']).date() + timedelta(days=1)
     else:
         df_panel = pd.DataFrame()
@@ -75,16 +76,17 @@ def nibor():
             df_fixed = df_fixed.append(df_hms, ignore_index=True)
             df_fixed = df_fixed.sort_values(by='Date', ignore_index=True)
 
-        write_df('nibor', df_fixed)
-        write_last_updated('NIBOR')
-        write_df('nibor_panel', df_panel)
-        write_last_updated('NIBOR w/panel banks')
+        write_df(dataset1, df_fixed)
+        write_last_updated(dataset1)
+        write_df(dataset2, df_panel)
+        write_last_updated(dataset2)
     else:
-        print('Data already up to date: nibor')
+        print('Data already up to date:', dataset1)
 
 def keyPolicyRate():
-    if path.exists('./data/no_keyPolicyRate.csv') == True:
-        df = pd.read_csv('./data/no_keyPolicyRate.csv', parse_dates=['Date'])
+    dataset = 'no_keyPolicyRate'
+    if path.exists('./data/' + dataset + '.csv') == True:
+        df = pd.read_csv('./data/' + dataset + '.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -110,14 +112,16 @@ def keyPolicyRate():
                             inplace=True)
 
             df = df.append(df_new, ignore_index=True)
-            write_df('keyPolicyRate', df)
-            write_last_updated('Key policy rate')
+
+            write_df(dataset, df)
+            write_last_updated(dataset)
     else:
-        print('Data already up to date: keyPolicyRate')
+        print('Data already up to date:', dataset)
 
 def nowa():
-    if path.exists('./data/no_nowa.csv') == True:
-        df = pd.read_csv('./data/no_nowa.csv', parse_dates=['Date'])
+    dataset = 'no_nowa'
+    if path.exists('./data/' + dataset + '.csv') == True:
+        df = pd.read_csv('./data/' + dataset + '.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -152,14 +156,15 @@ def nowa():
             df_new = df_new.reindex(columns=['Date','Rate','Volume','Qualifier','Banks lending', 'Banks borrowing', 'Transactions']).replace('Alternative method', 'Alternative').fillna(0)
             
             df = df.append(df_new, ignore_index=True)
-            write_df('nowa', df)
-            write_last_updated('NOWA')
+            write_df(dataset, df)
+            write_last_updated(dataset)
     else:
-        print('Data already up to date: nowa')
+        print('Data already up to date:', dataset)
 
 def treasuryBills():
-    if path.exists('./data/no_treasuryBills.csv') == True:
-        df = pd.read_csv('./data/no_treasuryBills.csv', parse_dates=['Date'])
+    dataset = 'no_treasuryBills'
+    if path.exists('./data/' + dataset + '.csv') == True:
+        df = pd.read_csv('./data/' + dataset + '.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -190,14 +195,15 @@ def treasuryBills():
             df_new = df_new.reindex(columns=['Date','3 months','6 months','9 months','12 months']).rename_axis(None, axis=1)
 
             df = df.append(df_new, ignore_index=True)
-            write_df('treasuryBills', df)
-            write_last_updated('Treasury bills')
+            write_df(dataset, df)
+            write_last_updated(dataset)
     else:
-        print('Data already up to date: treasuryBills')
+        print('Data already up to date:', dataset)
 
 def governmentBonds():
-    if path.exists('./data/no_governmentBonds.csv') == True:
-        df = pd.read_csv('./data/no_governmentBonds.csv', parse_dates=['Date'])
+    dataset = 'no_governmentBonds'
+    if path.exists('./data/' + dataset + '.csv') == True:
+        df = pd.read_csv('./data/' + dataset + '.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -229,14 +235,15 @@ def governmentBonds():
 
             df = df.append(df_new, ignore_index=True)
 
-            write_df('governmentBonds', df)
-            write_last_updated('Government bonds')
+            write_df(dataset, df)
+            write_last_updated(dataset)
     else:
-        print('Data already up to date: governmentBonds')
+        print('Data already up to date:', dataset)
 
 def exchangeRates():
-    if path.exists('./data/no_exchangeRates.csv') == True:
-        df = pd.read_csv('./data/no_exchangeRates.csv', parse_dates=['Date'])
+    dataset = 'no_exchangeRates'
+    if path.exists('./data/' + dataset + '.csv') == True:
+        df = pd.read_csv('./data/' + dataset + '.csv', parse_dates=['Date'])
         date_last = max(df['Date']).date() + timedelta(days=1)
     else:
         df = pd.DataFrame()
@@ -270,10 +277,10 @@ def exchangeRates():
 
             df = df.append(df_new, ignore_index=True)
 
-            write_df('exchangeRates', df)
-            write_last_updated('Exchange Rates')
+            write_df(dataset, df)
+            write_last_updated(dataset)
     else:
-        print('Data already up to date: exchangeRates')
+        print('Data already up to date:', dataset)
 
 if __name__ == '__main__':
     nibor()

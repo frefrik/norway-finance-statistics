@@ -18,9 +18,9 @@ def table_datasets():
     
     link = mdFile.new_inline_link
     for ds in datasets:
-        dataset_table.extend([link(link=ds['dataset_detail'], text=ds['dataset']), ds['data_source'], ds['date_range'], ds['last_updated'], link(link=ds['link_csv'], text='csv', align='center'), link(link=ds['link_preview'], text='preview', align='center')])
+        dataset_table.extend([link(link=ds['dataset_detail'], text=ds['name']), ds['data_source'], ds['date_range'], ds['last_updated'], link(link=ds['link_csv'], text='csv', align='center'), link(link=ds['link_preview'], text='preview', align='center')])
 
-    mdFile.new_table(columns=columns, rows=len(datasets)+1, text=dataset_table, text_align='left')
+    mdFile.new_table(columns=columns, rows=len(datasets), text=dataset_table, text_align='left')
 
 if __name__ == '__main__':
     table_datasets()

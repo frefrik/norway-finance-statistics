@@ -1,6 +1,7 @@
 [
   {
-    "dataset": "NIBOR",
+    "name": "NIBOR",
+    "dataset": "no_nibor",
     "dataset_detail": "#nibor",
     "data_source": "Norges Bank<br>Norske Finansielle Referanser AS",
     "date_range": "1986 - 2013<br>2020 - Present",
@@ -9,7 +10,8 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv"
   },
   {
-    "dataset": "NIBOR w/panel banks",
+    "name": "NIBOR w/panel banks",
+    "dataset": "no_nibor_panel",
     "dataset_detail": "#nibor-wpanel-banks",
     "data_source": "Norske Finansielle Referanser AS",
     "date_range": "2020 - Present",
@@ -18,7 +20,8 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv"
   },
   {
-    "dataset": "Key policy rate",
+    "name": "Key policy rate",
+    "dataset": "no_keyPolicyRate",
     "dataset_detail": "#key-policy-rate",
     "data_source": "Norges Bank",
     "date_range": "1991 - Present",
@@ -27,7 +30,8 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv"
   },
   {
-    "dataset": "NOWA",
+    "name": "NOWA",
+    "dataset": "no_nowa",
     "dataset_detail": "#nowa---norwegian-overnight-weighted-average",
     "data_source": "Norges Bank",
     "date_range": "2011 - Present",
@@ -36,7 +40,8 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv"
   },
   {
-    "dataset": "Treasury bills",
+    "name": "Treasury bills",
+    "dataset": "no_treasuryBills",
     "dataset_detail": "#treasury-bills",
     "data_source": "Norges Bank",
     "date_range": "2003 - Present",
@@ -45,7 +50,8 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv"
   },
   {
-    "dataset": "Government bonds",
+    "name": "Government bonds",
+    "dataset": "no_governmentBonds",
     "dataset_detail": "#government-bonds",
     "data_source": "Norges Bank",
     "date_range": "1986 - Present",
@@ -54,7 +60,8 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv"
   },
   {
-    "dataset": "Exchange Rates",
+    "name": "Exchange Rates",
+    "dataset": "no_exchangeRates",
     "dataset_detail": "#exchange-rates",
     "data_source": "Norges Bank",
     "date_range": "1980 - Present",
