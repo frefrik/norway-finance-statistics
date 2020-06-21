@@ -29,23 +29,15 @@ def write_last_updated(dataset):
         json.dump(datasets, f, indent=2)
 
 def nibor():
-    dataset1 = 'no_nibor'
-    dataset2 = 'no_nibor_panel'
-    if path.exists('./data/' + dataset2 + '.csv') == True:
-        df_panel = pd.read_csv('./data/' + dataset2 + '.csv', parse_dates=['Date'])
+    dataset_n = 'no_nibor'
+    dataset_np = 'no_nibor_panel'
+
+    if path.exists('./data/' + dataset_np + '.csv'):
+        df_panel = pd.read_csv('./data/' + dataset_np + '.csv', parse_dates=['Date', 'Calculation Date'])
         date_last = max(df_panel['Date']).date() + timedelta(days=1)
     else:
         df_panel = pd.DataFrame()
         date_last = datetime(2020, 1, 1).date()
-        df_hms = pd.read_excel('https://www.norges-bank.no/globalassets/marketdata/hms/data/nibor.xlsx', sheet_name='Daily', skiprows=6, usecols='A,C,E:H')
-        df_hms.rename(columns={'Unnamed: 0':'Date',
-                            '1 week':'1 Week',
-                            '1 month':'1 Month',
-                            '2 month':'2 Months',
-                            '3 month':'3 Months',
-                            '6 month':'6 Months'}, 
-                         inplace=True)
-        df_hms = df_hms.loc[(df_hms['Date'] > '1986-01-01') & (df_hms['Date'] <= '2013-12-06')].iloc[::-1]
 
     delta = get_dates(date_last)
 
@@ -62,26 +54,44 @@ def nibor():
                 df_panel_new.insert(0, "Date", day)
                 df_panel = df_panel.append(df_panel_new)
             elif load['message'] == 'Invalid request date':
-                #print(day, 'No rates published on this date, skipping')
-                pass
+                print(day, 'No rates published on this date')
+
+                df_panel_new = pd.DataFrame({'Date': [day], 'Calculation Date': [day]})
+                df_panel = df_panel.append(df_panel_new)
             else:
-                #print(day, 'Unknown error, skipping')
+                print(day, 'Unknown error, skipping')
                 pass
         
         df_panel['Date'] = pd.to_datetime(df_panel['Date'])
+        df_panel['Calculation Date'] = pd.to_datetime(df_panel['Calculation Date'])
+
         df_fixed = df_panel.pivot(index='Date', columns='Tenor', values='Fixing Rate').reset_index()
         df_fixed = df_fixed.reindex(columns=['Date','1 Week','1 Month','2 Months', '3 Months', '6 Months']).rename_axis(None, axis=1)
 
-        if date_last == date(2020, 1, 1):
-            df_fixed = df_fixed.append(df_hms, ignore_index=True)
-            df_fixed = df_fixed.sort_values(by='Date', ignore_index=True)
+        if path.exists('./data/' + dataset_n + '.csv'):
+            df = pd.read_csv('./data/' + dataset_n + '.csv', parse_dates=['Date'])
 
-        write_df(dataset1, df_fixed)
-        write_last_updated(dataset1)
-        write_df(dataset2, df_panel)
-        write_last_updated(dataset2)
+            df = df.append(df_fixed, ignore_index=True).drop_duplicates()
+        else:
+            df_hms = pd.read_excel('https://www.norges-bank.no/globalassets/marketdata/hms/data/nibor.xlsx', sheet_name='Daily', skiprows=6, usecols='A,C,E:H')
+            df_hms.rename(columns={'Unnamed: 0':'Date',
+                                '1 week':'1 Week',
+                                '1 month':'1 Month',
+                                '2 month':'2 Months',
+                                '3 month':'3 Months',
+                                '6 month':'6 Months'}, 
+                            inplace=True)
+            df_hms = df_hms.loc[(df_hms['Date'] > '1986-01-01') & (df_hms['Date'] <= '2013-12-06')].iloc[::-1]
+
+            df = df_fixed.append(df_hms, ignore_index=True)
+            df = df.sort_values(by='Date', ignore_index=True)
+
+        write_df(dataset_n, df)
+        write_last_updated(dataset_n)
+        write_df(dataset_np, df_panel)
+        write_last_updated(dataset_np)
     else:
-        print('Data already up to date:', dataset1)
+        print('Data already up to date:', dataset_n)
 
 def keyPolicyRate():
     dataset = 'no_keyPolicyRate'
@@ -99,7 +109,7 @@ def keyPolicyRate():
         res = requests.get(url)
 
         if res.status_code == 404:
-            pass
+            print('No new rates found for:', dataset)
         else:
             df_new = pd.read_csv(url,
                                 parse_dates=['TIME_PERIOD'],
@@ -134,7 +144,7 @@ def nowa():
         res = requests.get(url)
 
         if res.status_code == 404:
-            pass
+            print('No new rates found for:', dataset)
         else:
             df_new = pd.read_csv(url,
                             parse_dates=['TIME_PERIOD'],
@@ -177,7 +187,7 @@ def treasuryBills():
         res = requests.get(url)
 
         if res.status_code == 404:
-            pass
+            print('No new rates found for:', dataset)
         else:
             df_new = pd.read_csv(url,
                             parse_dates=['TIME_PERIOD'],
@@ -216,7 +226,7 @@ def governmentBonds():
         res = requests.get(url)
 
         if res.status_code == 404:
-            pass
+            print('No new rates found for:', dataset)
         else:
             df_new = pd.read_csv(url,
                             parse_dates=['TIME_PERIOD'],
@@ -256,7 +266,7 @@ def exchangeRates():
         res = requests.get(url)
 
         if res.status_code == 404:
-            pass
+            print('No new rates found for:', dataset)
         else:
             df_new = pd.read_csv(url,
                             parse_dates=['TIME_PERIOD'],
