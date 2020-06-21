@@ -56,7 +56,7 @@ def nibor():
             elif load['message'] == 'Invalid request date':
                 print(day, 'No rates published on this date')
 
-                df_panel_new = pd.DataFrame({'Date': [day], 'Calculation Date': [day]})
+                df_panel_new = pd.DataFrame({'Date': [day]*5, 'Calculation Date': [day]*5, 'Tenor': ['1 Week','1 Month','2 Months','3 Months','6 Months']})
                 df_panel = df_panel.append(df_panel_new)
             else:
                 print(day, 'Unknown error, skipping')

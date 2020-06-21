@@ -28,7 +28,7 @@ def nibor():
         df = pd.read_csv('./data/no_nibor.csv', parse_dates=['Date'])
 
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
-    df = df[df.Date >= '2020-01-01']
+    df = df[df.Date >= '2020-01-02'].dropna()
 
     chart = alt.Chart(df, title='NIBOR - YTD (2020)').mark_line().encode(
         x=alt.X('monthdate(Date):T', title='Date'),
@@ -52,10 +52,10 @@ def nibor_panel_3m():
         df = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'], index_col=['Date'], usecols=['Date', 'Tenor', 'DNBB', 'DSKE', 'HAND', 'NORD', 'SEBB', 'SWED'])
     
     df = df.loc[df['Tenor'] == '3 Months'].last('60D').reset_index()
-    df = df.melt(id_vars=['Date', 'Tenor'], var_name='Bank', value_name='Rate')
-    
+    df = df.melt(id_vars=['Date', 'Tenor'], var_name='Bank', value_name='Rate').dropna()
+
     chart = alt.Chart(df, title='NIBOR Panel Banks (3 Months) - Last 60 days').mark_line().encode(
-        x=alt.X('monthdate(Date):O', title='Date'),
+        x=alt.X('monthdate(Date):T', title='Date'),
         y=alt.Y('Rate:Q', title='Rate',
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient='right', format='.2f')),
