@@ -5,7 +5,7 @@
     "dataset_detail": "#nibor",
     "data_source": "Norges Bank<br>Norske Finansielle Referanser AS",
     "date_range": "1986 - 2013<br>2020 - Present",
-    "last_updated": "2020-08-14",
+    "last_updated": "2020-08-15",
     "link_preview": "data/no_nibor.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv"
   },
@@ -15,7 +15,7 @@
     "dataset_detail": "#nibor-wpanel-banks",
     "data_source": "Norske Finansielle Referanser AS",
     "date_range": "2020 - Present",
-    "last_updated": "2020-08-14",
+    "last_updated": "2020-08-15",
     "link_preview": "data/no_nibor_panel.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv"
   },
@@ -65,7 +65,7 @@
     "dataset_detail": "#exchange-rates",
     "data_source": "Norges Bank",
     "date_range": "1980 - Present",
-    "last_updated": "2020-08-14",
+    "last_updated": "2020-08-15",
     "link_preview": "data/no_exchangeRates.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv"
   }
