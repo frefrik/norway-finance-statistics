@@ -1,6 +1,5 @@
 import pandas as pd
 import altair as alt
-from os import path
 
 def keyPolicyRate():
     print('Generating graph: keyPolicyRate ...', end='', flush=True)
