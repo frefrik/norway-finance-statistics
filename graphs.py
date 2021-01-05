@@ -9,8 +9,8 @@ def keyPolicyRate():
     if path.exists('./data/no_keyPolicyRate.csv') == True:
         df = pd.read_csv('./data/no_keyPolicyRate.csv', parse_dates=['Date'])
 
-    chart = alt.Chart(df, title='Key policy rate, 1991 - 2020').mark_line().encode(
-        x=alt.X('year(Date):O', title='Dato'),
+    chart = alt.Chart(df, title='Key policy rate, 1991 - 2021').mark_line().encode(
+        x=alt.X('year(Date):O', axis=alt.Axis(title='Dato', labelAngle=-45)),
         y=alt.Y('Rate:Q', title='Key policy rate')
     ).properties(
         width=1200,
@@ -30,8 +30,8 @@ def nibor():
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
     df = df[df.Date >= '2020-01-02'].dropna()
 
-    chart = alt.Chart(df, title='NIBOR - YTD (2020)').mark_line().encode(
-        x=alt.X('monthdate(Date):T', title='Date'),
+    chart = alt.Chart(df, title='NIBOR, 2020 - 2021').mark_line().encode(
+        x=alt.X('Date', title='Date'),
         y=alt.Y('Rate:Q', title='Rate',
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient='right', format='.2f')),
@@ -55,7 +55,7 @@ def nibor_panel_3m():
     df = df.melt(id_vars=['Date', 'Tenor'], var_name='Bank', value_name='Rate').dropna()
 
     chart = alt.Chart(df, title='NIBOR Panel Banks (3 Months) - Last 60 days').mark_line().encode(
-        x=alt.X('monthdate(Date):T', title='Date'),
+        x=alt.X('Date', axis=alt.Axis(title='Date', format="%b %d")),
         y=alt.Y('Rate:Q', title='Rate',
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient='right', format='.2f')),
@@ -78,8 +78,8 @@ def exchangeRates():
     df = df.melt(id_vars=['Date', 'Quote Currency'], value_vars=['EUR', 'USD', 'GBP'], var_name='Currency', value_name='Rate')
     df = df[df.Date >= '2020-01-01']
 
-    chart = alt.Chart(df, title='Exchange Rates - YTD (2020)').mark_line().encode(
-        x=alt.X('monthdate(Date):T', title='Date'),
+    chart = alt.Chart(df, title='Exchange Rates, 2020 - 2021').mark_line().encode(
+        x=alt.X('Date', title='Date'),
         y=alt.Y('Rate:Q', title='Rate',
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient='right')),
@@ -102,8 +102,8 @@ def treasuryBills():
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
     df = df[df.Date >= '2020-01-01']
 
-    chart = alt.Chart(df, title='Treasury bills - YTD (2020)').mark_line().encode(
-        x=alt.X('monthdate(Date):T', title='Date'),
+    chart = alt.Chart(df, title='Treasury bills, 2020 - 2021').mark_line().encode(
+        x=alt.X('Date', title='Date'),
         y=alt.Y('Rate:Q', title='Rate',
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient='right')),
@@ -126,8 +126,8 @@ def governmentBonds():
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
     df = df[df.Date >= '2020-01-01']
 
-    chart = alt.Chart(df, title='Government bonds - YTD (2020)').mark_line().encode(
-        x=alt.X('monthdate(Date):T', title='Date'),
+    chart = alt.Chart(df, title='Government bonds, 2020 - 2021').mark_line().encode(
+        x=alt.X('Date', title='Date'),
         y=alt.Y('Rate:Q', title='Rate',
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient='right')),
