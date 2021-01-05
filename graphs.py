@@ -6,8 +6,7 @@ def keyPolicyRate():
     print('Generating graph: keyPolicyRate ...', end='', flush=True)
     filename = './img/keyPolicyRate.png'
 
-    if path.exists('./data/no_keyPolicyRate.csv') == True:
-        df = pd.read_csv('./data/no_keyPolicyRate.csv', parse_dates=['Date'])
+    df = pd.read_csv('./data/no_keyPolicyRate.csv', parse_dates=['Date'])
 
     chart = alt.Chart(df, title='Key policy rate, 1991 - 2021').mark_line().encode(
         x=alt.X('year(Date):O', axis=alt.Axis(title='Dato', labelAngle=-45)),
@@ -24,8 +23,7 @@ def nibor():
     print('Generating graph: NIBOR ...........', end='', flush=True)
     filename = './img/nibor.png'
 
-    if path.exists('./data/no_nibor.csv') == True:
-        df = pd.read_csv('./data/no_nibor.csv', parse_dates=['Date'])
+    df = pd.read_csv('./data/no_nibor.csv', parse_dates=['Date'])
 
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
     df = df[df.Date >= '2020-01-02'].dropna()
@@ -48,8 +46,7 @@ def nibor_panel_3m():
     print('Generating graph: NIBOR_panel_3m ..', end='', flush=True)
     filename = './img/nibor_panel_3m.png'
     
-    if path.exists('./data/no_nibor_panel.csv') == True:
-        df = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'], index_col=['Date'], usecols=['Date', 'Tenor', 'DNBB', 'DSKE', 'HAND', 'NORD', 'SEBB', 'SWED'])
+    df = pd.read_csv('./data/no_nibor_panel.csv', parse_dates=['Date'], index_col=['Date'], usecols=['Date', 'Tenor', 'DNBB', 'DSKE', 'HAND', 'NORD', 'SEBB', 'SWED'])
     
     df = df.loc[df['Tenor'] == '3 Months'].last('60D').reset_index()
     df = df.melt(id_vars=['Date', 'Tenor'], var_name='Bank', value_name='Rate').dropna()
@@ -72,8 +69,7 @@ def exchangeRates():
     print('Generating graph: exchangeRates ...', end='', flush=True)
     filename = './img/exchangeRates.png'
 
-    if path.exists('./data/no_exchangeRates.csv') == True:
-        df = pd.read_csv('./data/no_exchangeRates.csv', parse_dates=['Date'])
+    df = pd.read_csv('./data/no_exchangeRates.csv', parse_dates=['Date'])
 
     df = df.melt(id_vars=['Date', 'Quote Currency'], value_vars=['EUR', 'USD', 'GBP'], var_name='Currency', value_name='Rate')
     df = df[df.Date >= '2020-01-01']
@@ -96,8 +92,7 @@ def treasuryBills():
     print('Generating graph: treasuryBills ...', end='', flush=True)
     filename = './img/treasuryBills.png'
 
-    if path.exists('./data/no_treasuryBills.csv') == True:
-        df = pd.read_csv('./data/no_treasuryBills.csv', parse_dates=['Date'])
+    df = pd.read_csv('./data/no_treasuryBills.csv', parse_dates=['Date'])
 
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
     df = df[df.Date >= '2020-01-01']
@@ -120,8 +115,7 @@ def governmentBonds():
     print('Generating graph: governmentBonds .', end='', flush=True)
     filename = './img/governmentBonds.png'
 
-    if path.exists('./data/no_governmentBonds.csv') == True:
-        df = pd.read_csv('./data/no_governmentBonds.csv', parse_dates=['Date'])
+    df = pd.read_csv('./data/no_governmentBonds.csv', parse_dates=['Date'])
 
     df = df.melt(id_vars=['Date'], var_name='Tenor', value_name='Rate')
     df = df[df.Date >= '2020-01-01']
