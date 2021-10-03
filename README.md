@@ -30,7 +30,7 @@ Finansportalen.no is a service from the Norwegian Consumer Council, and will giv
 
 This dataset shows top 10 mortgages with floating interest rates, sorted ascending by effective interest rate.
 
-The following query parameters is used to produduce this dataset:
+The following query parameters is used to produduce the dataset:
 
 - **Loan amount**: 5 MNOK
 - **Housing value**: 7.2 MNOK
@@ -43,9 +43,11 @@ The following query parameters is used to produduce this dataset:
 The mortgage calculator is available here: https://finansportalen.no/bank/boliglan/
 
 #### Source
-  <a href="https://finansportalen.no">
-  <img src="https://finansportalen.no/uploads/2015/10/fp_data-levert-av_rgb.svg" alt="Data provided by Finansportalen" width="120">
-</a>
+  - Data provided by [Finansportalen.no](https://finansportalen.no)
+
+    <a href="https://finansportalen.no">
+    <img src="https://finansportalen.no/uploads/2015/10/fp_data-levert-av_rgb.svg" alt="Data provided     by Finansportalen" width="130">
+    </a>
 
 #### Dataset format
 
