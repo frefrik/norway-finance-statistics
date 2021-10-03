@@ -9,7 +9,7 @@ def write_df(dataset, df):
     try:
         df.to_csv("./data/" + dataset + ".csv", encoding="utf-8", index=False)
         print("DataFrame updated: {}".format(dataset))
-    except:
+    except Exception:
         print("write_df: Error")
 
 
@@ -132,7 +132,7 @@ def nibor():
 
 def keyPolicyRate():
     dataset = "no_keyPolicyRate"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -172,7 +172,7 @@ def keyPolicyRate():
 
 def nowa():
     dataset = "no_nowa"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -244,7 +244,7 @@ def nowa():
 
 def treasuryBills():
     dataset = "no_treasuryBills"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -290,7 +290,7 @@ def treasuryBills():
 
 def governmentBonds():
     dataset = "no_governmentBonds"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -337,7 +337,7 @@ def governmentBonds():
 
 def exchangeRates():
     dataset = "no_exchangeRates"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
