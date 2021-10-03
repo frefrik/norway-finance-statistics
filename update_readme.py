@@ -16,7 +16,7 @@ def table_datasets():
 
     dataset_table = [
         "Dataset",
-        "Data Source",
+        "Source",
         "Date Range",
         "Updated",
         "Download",
@@ -29,7 +29,7 @@ def table_datasets():
         dataset_table.extend(
             [
                 link(link=ds["dataset_detail"], text=ds["name"]),
-                ds["data_source"],
+                ds["source"],
                 ds["date_range"],
                 ds["last_updated"],
                 link(link=ds["link_csv"], text="csv", align="center"),
