@@ -12,6 +12,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Update data
         run: python get_rates.py
+        env:
+          FP_USERNAME: ${{ secrets.FP_USERNAME }}
+          FP_PASSWORD: ${{ secrets.FP_PASSWORD }}
       - name: Update graphs
         run: python graphs.py
       - name: Update README
