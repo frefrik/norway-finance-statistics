@@ -103,11 +103,11 @@ def nibor_panel_3m():
         usecols=["Date", "Tenor", "DNBB", "DSKE", "HAND", "NORD", "SEBB", "SWED"],
     )
 
-    df = df.loc[df["Tenor"] == "3 Months"].last("60D").reset_index()
+    df = df.loc[df["Tenor"] == "3 Months"].last("90D").reset_index()
     df = df.melt(id_vars=["Date", "Tenor"], var_name="Bank", value_name="Rate").dropna()
 
     chart = (
-        alt.Chart(df, title="NIBOR Panel Banks (3 Months) - Last 60 days")
+        alt.Chart(df, title="NIBOR Panel Banks (3 Months) - Last 90 days")
         .mark_line()
         .encode(
             x=alt.X("Date", axis=alt.Axis(title="Date", format="%b %d")),
