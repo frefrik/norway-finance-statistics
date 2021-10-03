@@ -1,15 +1,18 @@
 import json
+from datetime import date, datetime, timedelta
+from os import path
+
 import pandas as pd
 import requests
-from datetime import date, timedelta, datetime
-from os import path
+
+from src.finansportalen import Mortgage
 
 
 def write_df(dataset, df):
     try:
         df.to_csv("./data/" + dataset + ".csv", encoding="utf-8", index=False)
         print("DataFrame updated: {}".format(dataset))
-    except:
+    except Exception:
         print("write_df: Error")
 
 
@@ -30,6 +33,38 @@ def write_last_updated(dataset):
 
     with open("datasets.json", "w") as f:
         json.dump(datasets, f, indent=2)
+
+
+def mortgage():
+    dataset = "no_mortgage"
+    params = {
+        "lanebelop": 5000000,
+        "boligverdi": 7200000,
+        "nedbetalingstid": 20,
+        "alder": 36,
+        "rentetype": "flytende_rente",
+        "markedsomrade": "nasjonalt",
+        "medlemskap": "nei",
+        "n": 10,
+    }
+
+    if path.exists(f"./data/{dataset}.csv"):
+        df = pd.read_csv(f"./data/{dataset}.csv", parse_dates=["date"])
+        date_last = max(df["date"]).date()
+    else:
+        df = pd.DataFrame()
+        date_last = date.today() - timedelta(days=1)
+
+    delta = get_dates(date_last)
+
+    if delta[2] > 0:
+        df_new = Mortgage(params).get_dataframe()
+        df = df.append(df_new, ignore_index=True)
+
+        write_df(dataset, df)
+        write_last_updated(dataset)
+    else:
+        print("Data already up to date:", dataset)
 
 
 def nibor():
@@ -132,7 +167,7 @@ def nibor():
 
 def keyPolicyRate():
     dataset = "no_keyPolicyRate"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -172,7 +207,7 @@ def keyPolicyRate():
 
 def nowa():
     dataset = "no_nowa"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -244,7 +279,7 @@ def nowa():
 
 def treasuryBills():
     dataset = "no_treasuryBills"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -290,7 +325,7 @@ def treasuryBills():
 
 def governmentBonds():
     dataset = "no_governmentBonds"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -337,7 +372,7 @@ def governmentBonds():
 
 def exchangeRates():
     dataset = "no_exchangeRates"
-    if path.exists("./data/" + dataset + ".csv") == True:
+    if path.exists("./data/" + dataset + ".csv"):
         df = pd.read_csv("./data/" + dataset + ".csv", parse_dates=["Date"])
         date_last = max(df["Date"]).date() + timedelta(days=1)
     else:
@@ -393,6 +428,7 @@ def exchangeRates():
 
 
 if __name__ == "__main__":
+    mortgage()
     nibor()
     keyPolicyRate()
     nowa()

@@ -1,5 +1,46 @@
-import pandas as pd
 import altair as alt
+import pandas as pd
+
+
+def mortgage():
+    print("Generating graph: mortgage ...", end="", flush=True)
+    filename = "./img/mortgage.png"
+
+    df = pd.read_csv(
+        "./data/no_mortgage.csv",
+        parse_dates=["date"],
+        usecols=["date", "bank", "rate_effective"],
+    )
+
+    chart = (
+        alt.Chart(df, title="Mortgage Rates")
+        .mark_line()
+        .encode(
+            x=alt.X("date", axis=alt.Axis(title="Date")),
+            y=alt.Y(
+                "rate_effective:Q",
+                title="Rate",
+                scale=alt.Scale(zero=False),
+                axis=alt.Axis(orient="right", format=".2f"),
+            ),
+            color=alt.Color(
+                "bank",
+                title="Bank",
+                legend=alt.Legend(
+                    title=None,
+                    strokeColor="gray",
+                    padding=6,
+                    cornerRadius=5,
+                    orient="top-left",
+                    fillColor="#FFFFFF",
+                ),
+            ),
+        )
+        .properties(width=1200, height=600)
+    )
+
+    chart.save(filename)
+    print("[OK]")
 
 
 def keyPolicyRate():
@@ -178,6 +219,7 @@ def governmentBonds():
 
 
 if __name__ == "__main__":
+    mortgage()
     keyPolicyRate()
     nibor()
     nibor_panel_3m()

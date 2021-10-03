@@ -1,13 +1,17 @@
-import pathlib
-import sys
-import re
 import json
+import pathlib
+import re
+import sys
+
 from mdutils.mdutils import MdUtils
 
 root = pathlib.Path(__file__).parent.resolve()
 
 mdFile = MdUtils(file_name="README")
-index_re = re.compile(r"<!\-\- table starts \-\->.*<!\-\- table ends \-\->", re.DOTALL)
+index_re = re.compile(
+    r"<!\-\- table starts \-\->.*<!\-\- table ends \-\->",
+    re.DOTALL,
+)
 
 
 def table_datasets():
@@ -16,7 +20,7 @@ def table_datasets():
 
     dataset_table = [
         "Dataset",
-        "Data Source",
+        "Source",
         "Date Range",
         "Updated",
         "Download",
@@ -28,17 +32,31 @@ def table_datasets():
     for ds in datasets:
         dataset_table.extend(
             [
-                link(link=ds["dataset_detail"], text=ds["name"]),
-                ds["data_source"],
+                link(
+                    link=ds["dataset_detail"],
+                    text=ds["name"],
+                ),
+                ds["source"],
                 ds["date_range"],
                 ds["last_updated"],
-                link(link=ds["link_csv"], text="csv", align="center"),
-                link(link=ds["link_preview"], text="preview", align="center"),
+                link(
+                    link=ds["link_csv"],
+                    text="csv",
+                    align="center",
+                ),
+                link(
+                    link=ds["link_preview"],
+                    text="preview",
+                    align="center",
+                ),
             ]
         )
 
     mdFile.new_table(
-        columns=columns, rows=len(datasets) + 1, text=dataset_table, text_align="left"
+        columns=columns,
+        rows=len(datasets) + 1,
+        text=dataset_table,
+        text_align="left",
     )
 
 

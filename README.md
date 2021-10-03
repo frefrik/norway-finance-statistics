@@ -10,8 +10,9 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 ## Overview
 
 <!-- table starts -->
-|Dataset|Data Source|Date Range|Updated|Download|Preview|
+|Dataset|Source|Date Range|Updated|Download|Preview|
 | :--- | :--- | :--- | :--- | :--- | :--- |
+|[Mortgage](#mortgage)|Finansportalen|2021 - Present|2021-10-03|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv)|[<center>preview</center>](data/no_mortgage.csv)|
 |[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2021-10-03|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
 |[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2021-10-03|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
 |[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2021-10-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
@@ -23,14 +24,55 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 
 ## Datasets
 
+### Mortgage
+
+Finansportalen.no is a service from the Norwegian Consumer Council, and will give consumers power and the opportunity to make good choices in the market for financial services.
+
+This dataset shows top 10 mortgages with floating interest rates, sorted ascending by effective interest rate.
+
+The following query parameters is used to produduce the dataset:
+
+- **Loan amount**: 5 MNOK
+- **Housing value**: 7.2 MNOK
+- **Repayment period**: 20 years
+- **Age of borrower**: 36
+- **Interest rate type**: Floating interest rate
+- **Market area**: National
+- **Membership needed**: False
+
+The mortgage calculator is available here: https://finansportalen.no/bank/boliglan/
+
+#### Source
+  - Data provided by [Finansportalen.no](https://finansportalen.no)
+
+    <a href="https://finansportalen.no">
+    <img src="https://finansportalen.no/uploads/2015/10/fp_data-levert-av_rgb.svg" alt="Data provided     by Finansportalen" width="130">
+    </a>
+
+#### Dataset format
+
+```csv
+date,bank,product_name,rate_effective,rate_nominal,monthly,total_cost,first_year_cost,establishment_fee
+2021-10-03,Himla Banktjenester (Fana Sparebank),Boliglån innenfor 75 %,1.33,1.32,23716,5691840,284592,0
+2021-10-03,Nybygger.no (Sparebanken Øst),Boliglån 75%,1.34,1.33,23738,5697120,284856,0
+2021-10-03,SpareBank 1 SMN,Grønt førstehjemslån,1.39,1.35,23852,5724480,286224,2650
+2021-10-03,NORDirekte (Skagerrak Sparebank),Boliglån inntil 70 %,1.43,1.4,23938,5745120,287256,0
+2021-10-03,Orkla Sparebank,Grønt boliglån,1.54,1.5,24192,5806080,290304,2000
+...
+```  
+
+![Mortgage](img/mortgage.png)
+
+---
+
 ### NIBOR
 
 Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
 
-#### Data Source
+#### Source
 
-- Norges Bank (<https://norges-bank.no/en/>)
-- Norske Finansielle Referanser AS (<https://referanserenter.no>)
+- [Norges Bank](https://norges-bank.no/en/)
+- [Norske Finansielle Referanser AS](https://referanserenter.no)
 
 #### Dataset format
 
@@ -56,9 +98,9 @@ Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian mon
 - **SEBB**: SEB AB  
 - **SWED**: Swedbank AB
 
-#### Data Source
+#### Source
 
-- Norske Finansielle Referanser AS (<https://referanserenter.no>)
+- [Norske Finansielle Referanser AS](https://referanserenter.no)
 
 #### Dataset format
 
@@ -79,9 +121,9 @@ The policy rate in Norway is the interest rate on banks' overnight deposits in N
 
 The policy rate and policy rate expectations primarily influence interbank rates and banks' interest rates on customer deposits and loans. Market rates, in turn, affect the krone exchange rate, securities prices, house prices, credit demand, consumption and investment.
 
-#### Data Source
+#### Source
 
-- Norges Bank (<https://norges-bank.no/en/>)
+- [Norges Bank](https://norges-bank.no/en/)
 
 #### Dataset format
 
@@ -100,9 +142,9 @@ Date,Rate
 
 Nowa is the interest rate on unsecured overnight interbank loans between banks that are active in the Norwegian overnight market. Nowa is based on actual transactions reported on Norges Bank's RPD (money market data reporting) form.
 
-#### Data Source
+#### Source
 
-- Norges Bank (<https://norges-bank.no/en/>)
+- [Norges Bank](https://norges-bank.no/en/)
 
 #### Dataset format
 
@@ -119,9 +161,9 @@ Date,Rate,Volume,Qualifier,Banks lending,Banks borrowing,Transactions
 
 Treasury bills are government securities, with an original maturity of less than one year.
 
-#### Data Source
+#### Source
 
-- Norges Bank (<https://norges-bank.no/en/>)
+- [Norges Bank](https://norges-bank.no/en/)
 
 #### Dataset format
 
@@ -140,9 +182,9 @@ Date,3 months,6 months,9 months,12 months
 
 A bond is an interest-bearing security with an original maturity of more than 1 year.
 
-#### Data Source
+#### Source
 
-- Norges Bank (<https://norges-bank.no/en/>)
+- [Norges Bank](https://norges-bank.no/en/)
 
 #### Dataset format
 
@@ -161,9 +203,9 @@ Date,3 years,5 years,10 years
 
 Norges Bank's exchange rates are middle rates, i.e. the mid-point between buying and selling rates in the interbank market at a given time.
 
-#### Data Source
+#### Source
 
-- Norges Bank (<https://norges-bank.no/en/>)
+- [Norges Bank](https://norges-bank.no/en/)
 
 #### Dataset format
 
