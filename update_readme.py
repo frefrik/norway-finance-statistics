@@ -1,7 +1,8 @@
-import pathlib
-import sys
-import re
 import json
+import pathlib
+import re
+import sys
+
 from mdutils.mdutils import MdUtils
 
 root = pathlib.Path(__file__).parent.resolve()
