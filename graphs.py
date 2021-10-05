@@ -11,15 +11,16 @@ def mortgage():
         parse_dates=["date"],
         usecols=["date", "bank", "rate_effective"],
     )
+    df_last = df[(df["date"] >= (df["date"].max()))]
 
     chart = (
-        alt.Chart(df, title="Mortgage Rates")
+        alt.Chart(df, title="Mortgage (Effective rates)")
         .mark_line()
         .encode(
             x=alt.X("date", axis=alt.Axis(title="Date")),
             y=alt.Y(
                 "rate_effective:Q",
-                title="Rate",
+                title="Interest Rate",
                 scale=alt.Scale(zero=False),
                 axis=alt.Axis(orient="right", format=".2f"),
             ),
@@ -29,11 +30,14 @@ def mortgage():
                 legend=alt.Legend(
                     title=None,
                     strokeColor="gray",
+                    labelLimit=200,
                     padding=6,
                     cornerRadius=5,
                     orient="top-left",
                     fillColor="#FFFFFF",
+                    symbolStrokeWidth=4,
                 ),
+                sort=df_last.bank.values,
             ),
         )
         .properties(width=1200, height=600)
