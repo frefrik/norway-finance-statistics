@@ -12,9 +12,9 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 <!-- table starts -->
 |Dataset|Source|Date Range|Updated|Download|Preview|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[Mortgage](#mortgage)|Finansportalen|2021 - Present|2021-11-07|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv)|[<center>preview</center>](data/no_mortgage.csv)|
-|[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2021-11-07|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
-|[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2021-11-07|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
+|[Mortgage](#mortgage)|Finansportalen|2021 - Present|2021-11-08|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv)|[<center>preview</center>](data/no_mortgage.csv)|
+|[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2021-11-08|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
+|[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2021-11-08|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
 |[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2021-11-05|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
 |[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2021-11-05|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
 |[Treasury bills](#treasury-bills)|Norges Bank|2003 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
