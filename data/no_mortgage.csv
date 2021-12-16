@@ -739,3 +739,13 @@ date,bank,product_name,rate_effective,rate_nominal,monthly,total_cost,first_year
 2021-12-15,SpareBank 1 Østlandet,Grønt boliglån,1.63,1.59,24408,5857920,292896,1750
 2021-12-15,Sparebanken Øst,Grønt boliglån,1.64,1.59,24411,5858640,292932,0
 2021-12-15,SpareBank 1 Sørøst-Norge,Grønt Boliglån,1.64,1.59,24412,5858880,292944,2500
+2021-12-16,SpareBank 1 SMN,Grønt førstehjemslån,1.39,1.35,23862,5726880,286344,2650
+2021-12-16,SpareBank 1 Nordmøre,Grønt boliglån,1.4,1.35,23879,5730960,286548,3000
+2021-12-16,Cultura Sparebank,Miljøboliglån 85%,1.54,1.5,24187,5804880,290244,2000
+2021-12-16,Landkreditt Bank AS,Grønt Boliglån,1.56,1.55,24247,5819280,290964,0
+2021-12-16,Himla Banktjenester (Fana Sparebank),Boliglån innenfor 75 %,1.56,1.55,24242,5818080,290904,0
+2021-12-16,Nybygger.no (Sparebanken Øst),Boliglån 75%,1.57,1.56,24265,5823600,291180,0
+2021-12-16,SpareBank 1 Hallingdal Valdres,Grønt lån bolig/ fritidsbolig til eget bruk (Krav om energikarakter A),1.6,1.55,24325,5838000,291900,5000
+2021-12-16,SpareBank 1 Østlandet,Grønt boliglån,1.63,1.59,24408,5857920,292896,1750
+2021-12-16,Sparebanken Øst,Grønt boliglån,1.64,1.59,24411,5858640,292932,0
+2021-12-16,SpareBank 1 Sørøst-Norge,Grønt Boliglån,1.64,1.59,24412,5858880,292944,2500
