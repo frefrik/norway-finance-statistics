@@ -5,7 +5,7 @@
     "dataset_detail": "#mortgage",
     "source": "Finansportalen",
     "date_range": "2021 - Present",
-    "last_updated": "2022-01-30",
+    "last_updated": "2022-01-31",
     "link_preview": "data/no_mortgage.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv"
   },
@@ -15,7 +15,7 @@
     "dataset_detail": "#nibor",
     "source": "Norges Bank<br>Norske Finansielle Referanser AS",
     "date_range": "1986 - 2013<br>2020 - Present",
-    "last_updated": "2022-01-30",
+    "last_updated": "2022-01-31",
     "link_preview": "data/no_nibor.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv"
   },
@@ -25,7 +25,7 @@
     "dataset_detail": "#nibor-wpanel-banks",
     "source": "Norske Finansielle Referanser AS",
     "date_range": "2020 - Present",
-    "last_updated": "2022-01-30",
+    "last_updated": "2022-01-31",
     "link_preview": "data/no_nibor_panel.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv"
   },
