@@ -11,13 +11,14 @@ def mortgage():
         parse_dates=["date"],
         usecols=["date", "bank", "rate_effective"],
     )
+    df = df.drop_duplicates(subset=["date", "bank"], keep="first")
     df_last = df[(df["date"] >= (df["date"].max()))]
 
     chart = (
         alt.Chart(df, title="Mortgage (Effective rates)")
-        .mark_line()
+        .mark_line(interpolate="basis")
         .encode(
-            x=alt.X("date", axis=alt.Axis(title="Date")),
+            x=alt.X("yearmonthdate(date):O", axis=alt.Axis(title="Date")),
             y=alt.Y(
                 "rate_effective:Q",
                 title="Interest Rate",
