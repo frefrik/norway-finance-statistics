@@ -2709,3 +2709,13 @@ date,bank,product_name,rate_effective,rate_nominal,monthly,total_cost,first_year
 2022-06-30,DNB Bank ASA,Grønt boliglån,2.04,1.99,25352,6084480,304224,2190
 2022-06-30,Rindal Sparebank,Grønt boliglån,2.05,2.0,25359,6086160,304308,3000
 2022-06-30,Himla Banktjenester (Fana Sparebank),Boliglån innenfor 75 %,2.07,2.05,25413,6099120,304956,0
+2022-07-01,SpareBank 1 SMN,Grønt førstehjemslån,1.9,1.85,25020,6004800,300240,2650
+2022-07-01,Sunndal Sparebank,Grønt boliglån,2.01,1.95,25264,6063360,303168,3500
+2022-07-01,Landkreditt Bank AS,Grønt Boliglån,2.01,1.99,25273,6065520,303276,0
+2022-07-01,DNB Bank ASA,Grønt boliglån,2.04,1.99,25352,6084480,304224,2190
+2022-07-01,Rindal Sparebank,Grønt boliglån,2.05,2.0,25359,6086160,304308,3000
+2022-07-01,Himla Banktjenester (Fana Sparebank),Boliglån innenfor 75 %,2.07,2.05,25413,6099120,304956,0
+2022-07-01,Hjartdal og Gransherad Sparebank,Grønt rehabiliteringslån,2.1,2.04,25479,6114960,305748,5000
+2022-07-01,Hjartdal og Gransherad Sparebank,Grønt boliglån,2.1,2.04,25479,6114960,305748,5000
+2022-07-01,SpareBank 1 SMN,Grønt boliglån 85 %,2.16,2.11,25635,6152400,307620,2650
+2022-07-01,Landkreditt Bank AS,Fritidsbolig,2.17,2.15,25656,6157440,307872,0
