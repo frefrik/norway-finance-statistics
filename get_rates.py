@@ -86,7 +86,7 @@ def nibor():
         for i in range(delta[2]):
             day = date_last + timedelta(days=i)
             res = requests.post(
-                "https://rates.referanserenter.no/submit.php",
+                "https://nibor.globalrateset.com/submit.php",
                 data={"market": "NIBOR", "date": day},
             )
             load = json.loads(res.content)
