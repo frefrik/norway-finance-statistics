@@ -50,26 +50,6 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv"
   },
   {
-    "name": "Treasury bills",
-    "dataset": "no_treasuryBills",
-    "dataset_detail": "#treasury-bills",
-    "source": "Norges Bank",
-    "date_range": "2003 - Present",
-    "last_updated": "2021-07-01",
-    "link_preview": "data/no_treasuryBills.csv",
-    "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv"
-  },
-  {
-    "name": "Government bonds",
-    "dataset": "no_governmentBonds",
-    "dataset_detail": "#government-bonds",
-    "source": "Norges Bank",
-    "date_range": "1986 - Present",
-    "last_updated": "2021-07-01",
-    "link_preview": "data/no_governmentBonds.csv",
-    "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv"
-  },
-  {
     "name": "Exchange Rates",
     "dataset": "no_exchangeRates",
     "dataset_detail": "#exchange-rates",

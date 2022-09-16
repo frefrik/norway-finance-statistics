@@ -17,10 +17,15 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 |[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2022-09-16|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
 |[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2022-09-16|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
 |[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2022-09-16|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
-|[Treasury bills](#treasury-bills)|Norges Bank|2003 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
-|[Government bonds](#government-bonds)|Norges Bank|1986 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv)|[<center>preview</center>](data/no_governmentBonds.csv)|
 |[Exchange Rates](#exchange-rates)|Norges Bank|1980 - Present|2022-09-16|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv)|[<center>preview</center>](data/no_exchangeRates.csv)|
 <!-- table ends -->
+
+### Discontinued
+> |Dataset|Source|Date Range|Updated|Download|Preview|
+> | :--- | :--- | :--- | :--- | :--- | :--- |
+> |[Treasury bills](#treasury-bills)|Norges Bank|2003 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
+> |[Government bonds](#government-bonds)|Norges Bank|1986 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv)|[<center>preview</center>](data/no_governmentBonds.csv)|
+
 
 ## Datasets
 
@@ -157,7 +162,31 @@ Date,Rate,Volume,Qualifier,Banks lending,Banks borrowing,Transactions
 
 ---
 
+### Exchange Rates
+
+Norges Bank's exchange rates are middle rates, i.e. the mid-point between buying and selling rates in the interbank market at a given time.
+
+#### Source
+
+- [Norges Bank](https://norges-bank.no/en/)
+
+#### Dataset format
+
+```csv
+Date,Quote Currency,AUD,BDT,BGN,BRL,BYN,CAD,CHF,CNY,CZK,DKK,EUR,GBP,HKD,HRK,HUF,I44,IDR,ILS,INR,ISK,JPY,KRW,MMK,MXN,MYR,NZD,PHP,PKR,PLN,RON,RUB,SEK,SGD,THB,TRY,TWD,TWI,USD,XDR,ZAR
+2020-06-02,NOK,6.547999999999999,11.26,546.06,1.795,3.986,7.0699,994.3,134.48,40.082,143.27,10.6798,11.9886,1.2331,140.81,3.0896,114.95,0.066304,2.748,12.708,7.07,8.8387,0.7827,0.6842,43.69,2.2344,6.0406,19.047,5.78,2.4276,220.55,13.905999999999999,102.18,6.8163,30.279,141.08,31.941999999999997,126.0,9.5577,13.225929999999998,0.5541
+2020-06-03,NOK,6.5588,11.24,545.95,1.8412,3.9783,7.0373,989.32,134.14,40.051,143.23,10.6777,11.9887,1.2308,141.02,3.0869999999999997,114.87,0.067217,2.7542,12.636,7.07,8.7853,0.7828,0.6818,43.98,2.2384,6.0904,19.094,5.778,2.4193,220.65,13.866,102.09,6.8202,30.215,141.05,31.87,125.93,9.5388,13.206010000000001,0.5595
+...
+```
+
+![Exchange Rates](img/exchangeRates.png)
+
+---
+
 ### Treasury bills
+
+> ⚠️ The last update of the synthetic yield series for both Treasury bills and government bonds was on 30 June 2021.  
+> Source: https://www.norges-bank.no/en/topics/Statistics/zero-coupon-yields/Treasury-bills-daily/
 
 Treasury bills are government securities, with an original maturity of less than one year.
 
@@ -180,6 +209,9 @@ Date,3 months,6 months,9 months,12 months
 
 ### Government bonds
 
+> ⚠️ The last update of the synthetic yield series for both Treasury bills and government bonds was on 30 June 2021.  
+> Source: https://www.norges-bank.no/en/topics/Statistics/zero-coupon-yields/Government-bonds-daily/
+
 A bond is an interest-bearing security with an original maturity of more than 1 year.
 
 #### Source
@@ -196,26 +228,5 @@ Date,3 years,5 years,10 years
 ```
 
 ![Government bonds](img/governmentBonds.png)
-
----
-
-### Exchange Rates
-
-Norges Bank's exchange rates are middle rates, i.e. the mid-point between buying and selling rates in the interbank market at a given time.
-
-#### Source
-
-- [Norges Bank](https://norges-bank.no/en/)
-
-#### Dataset format
-
-```csv
-Date,Quote Currency,AUD,BDT,BGN,BRL,BYN,CAD,CHF,CNY,CZK,DKK,EUR,GBP,HKD,HRK,HUF,I44,IDR,ILS,INR,ISK,JPY,KRW,MMK,MXN,MYR,NZD,PHP,PKR,PLN,RON,RUB,SEK,SGD,THB,TRY,TWD,TWI,USD,XDR,ZAR
-2020-06-02,NOK,6.547999999999999,11.26,546.06,1.795,3.986,7.0699,994.3,134.48,40.082,143.27,10.6798,11.9886,1.2331,140.81,3.0896,114.95,0.066304,2.748,12.708,7.07,8.8387,0.7827,0.6842,43.69,2.2344,6.0406,19.047,5.78,2.4276,220.55,13.905999999999999,102.18,6.8163,30.279,141.08,31.941999999999997,126.0,9.5577,13.225929999999998,0.5541
-2020-06-03,NOK,6.5588,11.24,545.95,1.8412,3.9783,7.0373,989.32,134.14,40.051,143.23,10.6777,11.9887,1.2308,141.02,3.0869999999999997,114.87,0.067217,2.7542,12.636,7.07,8.7853,0.7828,0.6818,43.98,2.2384,6.0904,19.094,5.778,2.4193,220.65,13.866,102.09,6.8202,30.215,141.05,31.87,125.93,9.5388,13.206010000000001,0.5595
-...
-```
-
-![Exchange Rates](img/exchangeRates.png)
 
 ---
