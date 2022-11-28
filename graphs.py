@@ -226,8 +226,6 @@ def governmentBonds():
 if __name__ == "__main__":
     mortgage()
     keyPolicyRate()
-    nibor()
-    nibor_panel_3m()
     exchangeRates()
     treasuryBills()
     governmentBonds()

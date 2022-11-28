@@ -13,8 +13,6 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 |Dataset|Source|Date Range|Updated|Download|Preview|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[Mortgage](#mortgage)|Finansportalen|2021 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv)|[<center>preview</center>](data/no_mortgage.csv)|
-|[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
-|[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
 |[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
 |[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
 |[Exchange Rates](#exchange-rates)|Norges Bank|1980 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv)|[<center>preview</center>](data/no_exchangeRates.csv)|
@@ -25,6 +23,8 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 > | :--- | :--- | :--- | :--- | :--- | :--- |
 > |[Treasury bills](#treasury-bills)|Norges Bank|2003 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
 > |[Government bonds](#government-bonds)|Norges Bank|1986 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv)|[<center>preview</center>](data/no_governmentBonds.csv)|
+> |[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
+> |[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
 
 
 ## Datasets
@@ -72,6 +72,10 @@ date,bank,product_name,rate_effective,rate_nominal,monthly,total_cost,first_year
 
 ### NIBOR
 
+> ⚠️ NIBOR has launched a new website and restricted the access to delayed Nibor rates and monthly statistics.
+> [[Source](https://nore-benchmarks.com/wp-content/uploads/2022/10/2022-10-13-NoRe-launches-new-website-on-17-Oct-2022.pdf)]  
+> Last dataset update: 2022-11-02
+
 Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
 
 #### Source
@@ -93,6 +97,10 @@ Date,1 Week,1 Month,2 Months,3 Months,6 Months
 ---
 
 ### NIBOR w/panel banks
+
+> ⚠️ NIBOR has launched a new website and restricted the access to delayed Nibor rates and monthly statistics.
+> [[Source](https://nore-benchmarks.com/wp-content/uploads/2022/10/2022-10-13-NoRe-launches-new-website-on-17-Oct-2022.pdf)]  
+> Last dataset update: 2022-11-02
 
 Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.  
 

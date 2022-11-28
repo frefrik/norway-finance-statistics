@@ -429,7 +429,6 @@ def exchangeRates():
 
 if __name__ == "__main__":
     mortgage()
-    nibor()
     keyPolicyRate()
     nowa()
     treasuryBills()
