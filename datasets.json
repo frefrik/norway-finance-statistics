@@ -5,7 +5,7 @@
     "dataset_detail": "#mortgage",
     "source": "Finansportalen",
     "date_range": "2021 - Present",
-    "last_updated": "2023-01-20",
+    "last_updated": "2023-01-21",
     "link_preview": "data/no_mortgage.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv"
   },
@@ -55,7 +55,7 @@
     "dataset_detail": "#exchange-rates",
     "source": "Norges Bank",
     "date_range": "1980 - Present",
-    "last_updated": "2023-01-20",
+    "last_updated": "2023-01-21",
     "link_preview": "data/no_exchangeRates.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv"
   }
