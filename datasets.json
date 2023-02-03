@@ -10,26 +10,6 @@
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv"
   },
   {
-    "name": "NIBOR",
-    "dataset": "no_nibor",
-    "dataset_detail": "#nibor",
-    "source": "Norges Bank<br>Norske Finansielle Referanser AS",
-    "date_range": "1986 - 2013<br>2020 - Present",
-    "last_updated": "2022-11-02",
-    "link_preview": "data/no_nibor.csv",
-    "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv"
-  },
-  {
-    "name": "NIBOR w/panel banks",
-    "dataset": "no_nibor_panel",
-    "dataset_detail": "#nibor-wpanel-banks",
-    "source": "Norske Finansielle Referanser AS",
-    "date_range": "2020 - Present",
-    "last_updated": "2022-11-02",
-    "link_preview": "data/no_nibor_panel.csv",
-    "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv"
-  },
-  {
     "name": "Key policy rate",
     "dataset": "no_keyPolicyRate",
     "dataset_detail": "#key-policy-rate",
