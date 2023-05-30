@@ -25,7 +25,7 @@
     "dataset_detail": "#nowa---norwegian-overnight-weighted-average",
     "source": "Norges Bank",
     "date_range": "2011 - Present",
-    "last_updated": "2023-05-26",
+    "last_updated": "2023-05-30",
     "link_preview": "data/no_nowa.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv"
   },
