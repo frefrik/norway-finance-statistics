@@ -15,7 +15,7 @@
     "dataset_detail": "#key-policy-rate",
     "source": "Norges Bank",
     "date_range": "1991 - Present",
-    "last_updated": "2023-06-19",
+    "last_updated": "2023-06-20",
     "link_preview": "data/no_keyPolicyRate.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv"
   },
@@ -25,7 +25,7 @@
     "dataset_detail": "#nowa---norwegian-overnight-weighted-average",
     "source": "Norges Bank",
     "date_range": "2011 - Present",
-    "last_updated": "2023-06-19",
+    "last_updated": "2023-06-20",
     "link_preview": "data/no_nowa.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv"
   },
