@@ -3,6 +3,7 @@ import os
 import re
 import xml.etree.ElementTree as ET
 from datetime import date
+from io import StringIO
 from urllib.parse import urlencode
 
 import pandas as pd
@@ -63,7 +64,7 @@ class Mortgage:
 
             _json = json.dumps(listings, indent=2, separators=(",", ": "))
 
-            df = pd.read_json(_json, orient="index")
+            df = pd.read_json(StringIO(_json), orient="index")
             df = df[self.COLUMNS.keys()].rename(columns=self.COLUMNS)
             df.insert(0, "date", pd.to_datetime(date.today()))
 

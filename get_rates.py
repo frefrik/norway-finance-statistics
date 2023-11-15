@@ -59,7 +59,7 @@ def mortgage():
 
     if delta[2] > 0:
         df_new = Mortgage(params).get_dataframe()
-        df = df.append(df_new, ignore_index=True)
+        df = pd.concat([df, df_new], ignore_index=True)
 
         write_df(dataset, df)
         write_last_updated(dataset)
@@ -197,7 +197,7 @@ def keyPolicyRate():
                 columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True
             )
 
-            df = df.append(df_new, ignore_index=True)
+            df = pd.concat([df, df_new], ignore_index=True)
 
             write_df(dataset, df)
             write_last_updated(dataset)
@@ -270,7 +270,7 @@ def nowa():
                 .fillna(0)
             )
 
-            df = df.append(df_new, ignore_index=True)
+            df = pd.concat([df, df_new], ignore_index=True)
             write_df(dataset, df)
             write_last_updated(dataset)
     else:
@@ -316,7 +316,7 @@ def treasuryBills():
                 columns=["Date", "3 months", "6 months", "9 months", "12 months"]
             ).rename_axis(None, axis=1)
 
-            df = df.append(df_new, ignore_index=True)
+            df = pd.concat([df, df_new], ignore_index=True)
             write_df(dataset, df)
             write_last_updated(dataset)
     else:
@@ -362,7 +362,7 @@ def governmentBonds():
                 columns=["Date", "3 years", "5 years", "10 years"]
             ).rename_axis(None, axis=1)
 
-            df = df.append(df_new, ignore_index=True)
+            df = pd.concat([df, df_new], ignore_index=True)
 
             write_df(dataset, df)
             write_last_updated(dataset)
@@ -419,7 +419,7 @@ def exchangeRates():
                 .rename_axis(None, axis=1)
             )
 
-            df = df.append(df_new, ignore_index=True)
+            df = pd.concat([df, df_new], ignore_index=True)
 
             write_df(dataset, df)
             write_last_updated(dataset)
