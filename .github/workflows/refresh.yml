@@ -9,7 +9,7 @@ jobs:
     container: frefrik/norway-finance-statistics
     steps:
       - name: Checkout tools
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Update data
         run: python get_rates.py
         env:
@@ -20,7 +20,7 @@ jobs:
       - name: Update README
         run: python update_readme.py --rewrite
       - name: Commit changes
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v9
         with:
           author_name: GitHub Action
           author_email: action@github.com
