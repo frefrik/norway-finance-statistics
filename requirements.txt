@@ -1,4 +1,4 @@
-altair==4.2.2
+altair==5.1.2
 git+https://github.com/PaleNeutron/altair_saver.git
 mdutils==1.6.0
 pandas==2.1.3
