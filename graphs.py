@@ -78,10 +78,16 @@ def nibor():
     df = df[df.Date >= "2020-01-02"].dropna()
 
     chart = (
-        alt.Chart(df, title="NIBOR, 2020 - 2021")
+        alt.Chart(df, title="NIBOR, 2020 - 2022")
         .mark_line()
         .encode(
-            x=alt.X("Date", title="Date"),
+            x=alt.X(
+                "yearmonthdate(Date):T",
+                axis=alt.Axis(
+                    title="Date",
+                    format="%b %Y",
+                ),
+            ),
             y=alt.Y(
                 "Rate:Q",
                 title="Rate",
