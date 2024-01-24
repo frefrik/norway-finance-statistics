@@ -18,7 +18,10 @@ def mortgage():
         alt.Chart(df, title="Mortgage (Effective rates)")
         .mark_line(interpolate="basis")
         .encode(
-            x=alt.X("yearmonthdate(date):O", axis=alt.Axis(title="Date")),
+            x=alt.X(
+                "yearmonthdate(date):T",
+                axis=alt.Axis(title="Date", format="%b %Y"),
+            ),
             y=alt.Y(
                 "rate_effective:Q",
                 title="Interest Rate",
