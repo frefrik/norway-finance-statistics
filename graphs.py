@@ -155,10 +155,13 @@ def exchangeRates():
     df = df[df.Date >= "2020-01-01"]
 
     chart = (
-        alt.Chart(df, title="Exchange Rates, 2020 - 2021")
+        alt.Chart(df, title="Exchange Rates, 2020 - current")
         .mark_line()
         .encode(
-            x=alt.X("Date", title="Date"),
+            x=alt.X(
+                "yearmonthdate(Date):T",
+                axis=alt.Axis(title="Date", format="%b %Y", labelAngle=-30),
+            ),
             y=alt.Y(
                 "Rate:Q",
                 title="Rate",
