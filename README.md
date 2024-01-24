@@ -51,7 +51,7 @@ The mortgage calculator is available here: https://finansportalen.no/bank/boligl
   - Data provided by [Finansportalen.no](https://finansportalen.no)
 
     <a href="https://finansportalen.no">
-    <img src="https://www.finansportalen.no/uploads/2015/10/fp_data-levert-av_rgb.png" alt="Data provided by Finansportalen" width="130">
+    <img src="https://github.com/frefrik/norway-finance-statistics/assets/11590359/728a4dfc-2575-468c-9db1-724827f43a1c" alt="Data provided by Finansportalen" width="130" target="_blank">
     </a>
 
 #### Dataset format
