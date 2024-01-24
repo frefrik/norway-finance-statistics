@@ -21,10 +21,10 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 ### Discontinued
 > |Dataset|Source|Date Range|Updated|Download|Preview|
 > | :--- | :--- | :--- | :--- | :--- | :--- |
-> |[Treasury bills](#treasury-bills)|Norges Bank|2003 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
-> |[Government bonds](#government-bonds)|Norges Bank|1986 - Present|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv)|[<center>preview</center>](data/no_governmentBonds.csv)|
-> |[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
-> |[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - Present|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
+> |[Treasury bills](#treasury-bills)|Norges Bank|2003 - 2021|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_treasuryBills.csv)|[<center>preview</center>](data/no_treasuryBills.csv)|
+> |[Government bonds](#government-bonds)|Norges Bank|1986 - 2021|2021-07-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_governmentBonds.csv)|[<center>preview</center>](data/no_governmentBonds.csv)|
+> |[NIBOR](#nibor)|Norges Bank<br>Norske Finansielle Referanser AS|1986 - 2013<br>2020 - 2022|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor.csv)|[<center>preview</center>](data/no_nibor.csv)|
+> |[NIBOR w/panel banks](#nibor-wpanel-banks)|Norske Finansielle Referanser AS|2020 - 2022|2022-11-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nibor_panel.csv)|[<center>preview</center>](data/no_nibor_panel.csv)|
 
 
 ## Datasets
@@ -51,7 +51,7 @@ The mortgage calculator is available here: https://finansportalen.no/bank/boligl
   - Data provided by [Finansportalen.no](https://finansportalen.no)
 
     <a href="https://finansportalen.no">
-    <img src="https://finansportalen.no/uploads/2015/10/fp_data-levert-av_rgb.svg" alt="Data provided     by Finansportalen" width="130">
+    <img src="https://www.finansportalen.no/uploads/2015/10/fp_data-levert-av_rgb.png" alt="Data provided by Finansportalen" width="130">
     </a>
 
 #### Dataset format
