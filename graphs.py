@@ -58,7 +58,7 @@ def keyPolicyRate():
     df = pd.read_csv("./data/no_keyPolicyRate.csv", parse_dates=["Date"])
 
     chart = (
-        alt.Chart(df, title="Key policy rate, 1991 - 2021")
+        alt.Chart(df, title="Key policy rate, 1991 - current")
         .mark_line()
         .encode(
             x=alt.X("year(Date):O", axis=alt.Axis(title="Dato", labelAngle=-45)),
