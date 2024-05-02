@@ -5,7 +5,7 @@
     "dataset_detail": "#mortgage",
     "source": "Finansportalen",
     "date_range": "2021 - Present",
-    "last_updated": "2024-05-01",
+    "last_updated": "2024-05-02",
     "link_preview": "data/no_mortgage.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv"
   },
