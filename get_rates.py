@@ -217,7 +217,7 @@ def nowa():
     delta = get_dates(date_last)
 
     if delta[2] > 0:
-        url = "https://data.norges-bank.no/api/data/IR/B.NOWA..?format=csv&startPeriod={}&endPeriod={}&locale=en".format(
+        url = "https://data.norges-bank.no/api/data/SHORT_RATES/B.NOWA..?format=csv&startPeriod={}&endPeriod={}&locale=en".format(
             delta[1], delta[0]
         )
         res = requests.get(url)
