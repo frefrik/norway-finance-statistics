@@ -16,6 +16,7 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 |[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2024-09-11|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
 |[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2024-09-12|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
 |[Exchange Rates](#exchange-rates)|Norges Bank|1980 - Present|2024-09-12|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv)|[<center>preview</center>](data/no_exchangeRates.csv)|
+|[Inflation Indicators (CPI)](#inflation-indicators-cpi)|Norges Bank|2006 - Present|2024-09-12|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_cpi.csv)|[<center>preview</center>](data/no_cpi.csv)|
 <!-- table ends -->
 
 ### Discontinued
@@ -238,3 +239,27 @@ Date,3 years,5 years,10 years
 ![Government bonds](img/governmentBonds.png)
 
 ---
+
+### Inflation Indicators (CPI)
+
+The inflation indicators dataset provides various Consumer Price Index (CPI) measures for Norway. This includes the headline `CPI`, `CPI-ATE` (CPI adjusted for tax changes and excluding energy products), `CPIXE` (CPI adjusted for tax changes and excluding temporary changes in energy prices), and other inflation measures.
+
+The dataset includes the following columns:
+- `month`: The year and month of the observation
+- `cpi`: Consumer Price Index (CPI)
+- `cpi_ate`: CPI adjusted for tax changes and excluding energy products
+- `cpixe`: CPI adjusted for tax changes and excluding temporary changes in energy prices
+- `trimmed_mean`: A trimmed mean of the 12-month change in the sub-indices in the CPI adjusted for tax changes (CPI-AT)
+- `weighted_median`: A weighted median of the 12-month change in the sub-indices in the CPI-AT.
+
+#### Source
+
+- [Norges Bank](https://norges-bank.no/en/)
+
+#### Dataset format
+```csv
+month,cpi,cpi_ate,cpixe,trimmed_mean,weighted_median
+2006-01,1.8,0.8,1.3,1.6,1.7
+2006-02,2.6,1.0,1.4,1.7,1.8
+...
+```

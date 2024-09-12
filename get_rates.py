@@ -1,5 +1,6 @@
 import json
 from datetime import date, datetime, timedelta
+from io import StringIO
 from os import path
 
 import pandas as pd
@@ -427,6 +428,63 @@ def exchangeRates():
         print("Data already up to date:", dataset)
 
 
+def inflation_indicators():
+    dataset = "no_cpi"
+    file_path = f"./data/{dataset}.csv"
+    columns = ["month", "cpi", "cpi_ate", "cpixe", "trimmed_mean", "weighted_median"]
+
+    today = date.today()
+
+    df = (
+        pd.read_csv(file_path, parse_dates=["month"])
+        if path.exists(file_path)
+        else pd.DataFrame(columns=columns)
+    )
+
+    last_record_date = df["month"].max() if not df.empty else pd.Timestamp(2005, 12, 1)
+    next_update_date = (
+        (last_record_date + pd.DateOffset(months=2)).replace(day=10).date()
+    )
+
+    if today < next_update_date:
+        print(f"Data is up to date. Next update expected on {next_update_date}")
+        return
+
+    url = "https://www.norges-bank.no/globalassets/marketdata/ppo/kpi/kpi_tab_en.csv"
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return
+
+    df_new = pd.read_csv(StringIO(response.text))
+    df_new = df_new.rename(
+        columns={
+            df_new.columns[0]: "month",
+            "CPI": "cpi",
+            "CPI-ATE": "cpi_ate",
+            "CPIXE": "cpixe",
+            "Trimmed mean": "trimmed_mean",
+            "Weighted median": "weighted_median",
+        }
+    )
+    df_new["month"] = pd.to_datetime(df_new["month"], format="%b.%y")
+    df_new = df_new[df_new["month"] > last_record_date]
+
+    if df_new.empty:
+        print("No new data available.")
+        return
+
+    df = pd.concat([df, df_new], ignore_index=True) if not df.empty else df_new
+    df = df.sort_values("month").reset_index(drop=True)
+    df["month"] = df["month"].dt.strftime("%Y-%m")
+
+    write_df(dataset, df)
+    write_last_updated(dataset)
+
+
 if __name__ == "__main__":
     mortgage()
     keyPolicyRate()
@@ -434,3 +492,4 @@ if __name__ == "__main__":
     treasuryBills()
     governmentBonds()
     exchangeRates()
+    inflation_indicators()
