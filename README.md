@@ -263,3 +263,5 @@ month,cpi,cpi_ate,cpixe,trimmed_mean,weighted_median
 2006-02,2.6,1.0,1.4,1.7,1.8
 ...
 ```
+
+![Inflation Indicators (CPI)](img/cpi.png)

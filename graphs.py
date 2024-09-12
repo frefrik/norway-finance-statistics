@@ -235,9 +235,74 @@ def governmentBonds():
     print("[OK]")
 
 
+def inflation_indicators():
+    print("Generating graph: inflation_indicators (cpi) ...", end="", flush=True)
+    filename = "./img/cpi.png"
+
+    df = pd.read_csv("./data/no_cpi.csv", parse_dates=["month"])
+    df = df[["month", "cpi", "cpi_ate", "cpixe"]]
+    df_melted = df.melt(id_vars=["month"], var_name="Indicator", value_name="Rate")
+
+    indicator_names = {
+        "cpi": "CPI (Consumer Price Index)",
+        "cpi_ate": "CPI-ATE (excl. taxes and energy)",
+        "cpixe": "CPIXE (excl. temporary energy changes)",
+    }
+
+    df_melted["Indicator"] = df_melted["Indicator"].map(indicator_names)
+
+    chart = (
+        alt.Chart(df_melted)
+        .mark_line(strokeWidth=2)
+        .encode(
+            x=alt.X(
+                "month:T",
+                axis=alt.Axis(
+                    title="Year", format="%Y", tickCount="year", labelAngle=0
+                ),
+            ),
+            y=alt.Y("Rate:Q", axis=alt.Axis(title="Inflation Rate (%)", format=".1f")),
+            color=alt.Color(
+                "Indicator:N",
+                legend=alt.Legend(
+                    title="Indicator",
+                    orient="top-left",
+                    labelLimit=300,
+                    fillColor="#FFFFFF",
+                ),
+                scale=alt.Scale(
+                    domain=list(indicator_names.values()),
+                    range=["#1f77b4", "#ff7f0e", "#2ca02c"],
+                ),
+            ),
+        )
+        .properties(
+            width=1200,
+            height=600,
+            title={
+                "text": "Norwegian Inflation Indicators (2006-2024)",
+                "subtitle": "CPI, CPI-ATE, and CPIXE | Source: Norges Bank",
+                "subtitleFontSize": 14,
+                "anchor": "start",
+                "color": "black",
+            },
+        )
+        .configure_axis(labelFontSize=12, titleFontSize=14)
+        .configure_legend(
+            labelFontSize=12, titleFontSize=14, symbolSize=100, symbolStrokeWidth=2
+        )
+        .configure_view(strokeWidth=0)
+    )
+
+    # Save the chart
+    chart.save(filename)
+    print("[OK]")
+
+
 if __name__ == "__main__":
     mortgage()
     keyPolicyRate()
     exchangeRates()
     treasuryBills()
     governmentBonds()
+    inflation_indicators()
