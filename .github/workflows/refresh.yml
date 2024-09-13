@@ -20,15 +20,11 @@ jobs:
       - name: Update README
         run: python update_readme.py --rewrite
       - name: Commit changes
-        uses: EndBug/add-and-commit@v9
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          author_name: GitHub Action
-          author_email: action@github.com
-          message: "Scheduled data update"
-          add: "data/*.csv img/*.png datasets.json README.md"
+          commit_user_name: GitHub Action
+          commit_user_email: action@github.com
+          commit_message: "Scheduled data update"
+          file_pattern: "data/*.csv img/*.png datasets.json README.md"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
