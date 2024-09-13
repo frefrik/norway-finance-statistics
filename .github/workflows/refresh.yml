@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout tools
         uses: actions/checkout@v4
+      - name: Configure Git
+        run: git config --global --add safe.directory /__w/norway-finance-statistics/norway-finance-statistics
       - name: Update data
         run: python get_rates.py
         env:
