@@ -27,6 +27,7 @@ jobs:
         with:
           commit_user_name: GitHub Action
           commit_user_email: action@github.com
+          commit_author: GitHub Action <actions@github.com>
           commit_message: "Scheduled data update"
           file_pattern: "data/*.csv img/*.png datasets.json README.md"
         env:
