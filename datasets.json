@@ -42,7 +42,7 @@
   {
     "name": "Inflation Indicators (CPI)",
     "dataset": "no_cpi",
-    "dataset_detail": "#cpi",
+    "dataset_detail": "#inflation-indicators-cpi",
     "source": "Norges Bank",
     "date_range": "2006 - Present",
     "last_updated": "2024-09-12",
