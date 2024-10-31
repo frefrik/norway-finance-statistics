@@ -71,64 +71,6 @@ date,bank,product_name,rate_effective,rate_nominal,monthly,total_cost,first_year
 
 ---
 
-### NIBOR
-
-> ⚠️ NIBOR has launched a new website and restricted the access to delayed Nibor rates and monthly statistics.
-> [[Source](https://nore-benchmarks.com/wp-content/uploads/2022/10/2022-10-13-NoRe-launches-new-website-on-17-Oct-2022.pdf)]  
-> Last dataset update: 2022-11-02
-
-Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
-
-#### Source
-
-- [Norges Bank](https://norges-bank.no/en/)
-- [Norske Finansielle Referanser AS](https://referanserenter.no)
-
-#### Dataset format
-
-```csv
-Date,1 Week,1 Month,2 Months,3 Months,6 Months
-1986-01-02,12.67841,12.6194,,12.80975,12.93966
-1986-01-03,12.59994,12.52899,,12.83989,12.92999
-...
-```  
-
-![NIBOR](img/nibor.png)
-
----
-
-### NIBOR w/panel banks
-
-> ⚠️ NIBOR has launched a new website and restricted the access to delayed Nibor rates and monthly statistics.
-> [[Source](https://nore-benchmarks.com/wp-content/uploads/2022/10/2022-10-13-NoRe-launches-new-website-on-17-Oct-2022.pdf)]  
-> Last dataset update: 2022-11-02
-
-Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.  
-
-- **DNBB**: DNB Bank ASA  
-- **DSKE**: Danske Bank A/S  
-- **HAND**: Svenska Handelsbanken AB  
-- **NORD**: Nordea Bank ABP  
-- **SEBB**: SEB AB  
-- **SWED**: Swedbank AB
-
-#### Source
-
-- [Norske Finansielle Referanser AS](https://referanserenter.no)
-
-#### Dataset format
-
-```csv
-Date,Calculation Date,Tenor,Fixing Rate,DNBB,DSKE,HAND,NORD,SEBB,SWED
-2020-01-02,2 Jan 2020,1 Week,1.57,1.55,1.53,1.67,1.57,1.58,1.57
-2020-01-02,2 Jan 2020,1 Month,1.65,1.71,1.66,1.64,1.67,1.64,1.56
-...
-```
-
-![NIBOR w/panel banks](img/nibor_panel_3m.png)
-
----
-
 ### Key policy rate
 
 The policy rate in Norway is the interest rate on banks' overnight deposits in Norges Bank up to a specified quota.
@@ -192,6 +134,35 @@ Date,Quote Currency,AUD,BDT,BGN,BRL,BYN,CAD,CHF,CNY,CZK,DKK,EUR,GBP,HKD,HRK,HUF,
 
 ---
 
+### Inflation Indicators (CPI)
+
+The inflation indicators dataset provides various Consumer Price Index (CPI) measures for Norway. This includes the headline `CPI`, `CPI-ATE` (CPI adjusted for tax changes and excluding energy products), `CPIXE` (CPI adjusted for tax changes and excluding temporary changes in energy prices), and other inflation measures.
+
+The dataset includes the following columns:
+- `month`: The year and month of the observation
+- `cpi`: Consumer Price Index (CPI)
+- `cpi_ate`: CPI adjusted for tax changes and excluding energy products
+- `cpixe`: CPI adjusted for tax changes and excluding temporary changes in energy prices
+- `trimmed_mean`: A trimmed mean of the 12-month change in the sub-indices in the CPI adjusted for tax changes (CPI-AT)
+- `weighted_median`: A weighted median of the 12-month change in the sub-indices in the CPI-AT.
+
+#### Source
+
+- [Norges Bank](https://norges-bank.no/en/)
+
+#### Dataset format
+```csv
+month,cpi,cpi_ate,cpixe,trimmed_mean,weighted_median
+2006-01,1.8,0.8,1.3,1.6,1.7
+2006-02,2.6,1.0,1.4,1.7,1.8
+...
+```
+
+![Inflation Indicators (CPI)](img/cpi.png)
+
+<details>
+<summary>Discontinued datasets</summary>
+
 ### Treasury bills
 
 > ⚠️ The last update of the synthetic yield series for both Treasury bills and government bonds was on 30 June 2021.  
@@ -240,28 +211,60 @@ Date,3 years,5 years,10 years
 
 ---
 
-### Inflation Indicators (CPI)
+### NIBOR
 
-The inflation indicators dataset provides various Consumer Price Index (CPI) measures for Norway. This includes the headline `CPI`, `CPI-ATE` (CPI adjusted for tax changes and excluding energy products), `CPIXE` (CPI adjusted for tax changes and excluding temporary changes in energy prices), and other inflation measures.
+> ⚠️ NIBOR has launched a new website and restricted the access to delayed Nibor rates and monthly statistics.
+> [[Source](https://nore-benchmarks.com/wp-content/uploads/2022/10/2022-10-13-NoRe-launches-new-website-on-17-Oct-2022.pdf)]  
+> Last dataset update: 2022-11-02
 
-The dataset includes the following columns:
-- `month`: The year and month of the observation
-- `cpi`: Consumer Price Index (CPI)
-- `cpi_ate`: CPI adjusted for tax changes and excluding energy products
-- `cpixe`: CPI adjusted for tax changes and excluding temporary changes in energy prices
-- `trimmed_mean`: A trimmed mean of the 12-month change in the sub-indices in the CPI adjusted for tax changes (CPI-AT)
-- `weighted_median`: A weighted median of the 12-month change in the sub-indices in the CPI-AT.
+Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.
 
 #### Source
 
 - [Norges Bank](https://norges-bank.no/en/)
+- [Norske Finansielle Referanser AS](https://referanserenter.no)
 
 #### Dataset format
+
 ```csv
-month,cpi,cpi_ate,cpixe,trimmed_mean,weighted_median
-2006-01,1.8,0.8,1.3,1.6,1.7
-2006-02,2.6,1.0,1.4,1.7,1.8
+Date,1 Week,1 Month,2 Months,3 Months,6 Months
+1986-01-02,12.67841,12.6194,,12.80975,12.93966
+1986-01-03,12.59994,12.52899,,12.83989,12.92999
+...
+```  
+
+![NIBOR](img/nibor.png)
+
+---
+
+### NIBOR w/panel banks
+
+> ⚠️ NIBOR has launched a new website and restricted the access to delayed Nibor rates and monthly statistics.
+> [[Source](https://nore-benchmarks.com/wp-content/uploads/2022/10/2022-10-13-NoRe-launches-new-website-on-17-Oct-2022.pdf)]  
+> Last dataset update: 2022-11-02
+
+Nibor (Norwegian Inter Bank Offered Rate) is a collective term for Norwegian money market rates at different maturities. Nibor is intended to reflect the interest rate level a bank require for unsecured money market lending in NOK to another bank.  
+
+- **DNBB**: DNB Bank ASA  
+- **DSKE**: Danske Bank A/S  
+- **HAND**: Svenska Handelsbanken AB  
+- **NORD**: Nordea Bank ABP  
+- **SEBB**: SEB AB  
+- **SWED**: Swedbank AB
+
+#### Source
+
+- [Norske Finansielle Referanser AS](https://referanserenter.no)
+
+#### Dataset format
+
+```csv
+Date,Calculation Date,Tenor,Fixing Rate,DNBB,DSKE,HAND,NORD,SEBB,SWED
+2020-01-02,2 Jan 2020,1 Week,1.57,1.55,1.53,1.67,1.57,1.58,1.57
+2020-01-02,2 Jan 2020,1 Month,1.65,1.71,1.66,1.64,1.67,1.64,1.56
 ...
 ```
 
-![Inflation Indicators (CPI)](img/cpi.png)
+![NIBOR w/panel banks](img/nibor_panel_3m.png)
+
+</details>
