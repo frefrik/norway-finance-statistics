@@ -12,9 +12,9 @@ The datasets in this repository are automaticly updated every day at **2:05 AM**
 <!-- table starts -->
 |Dataset|Source|Date Range|Updated|Download|Preview|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[Mortgage](#mortgage)|Finansportalen|2021 - Present|2025-02-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv)|[<center>preview</center>](data/no_mortgage.csv)|
+|[Mortgage](#mortgage)|Finansportalen|2021 - Present|2025-02-03|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_mortgage.csv)|[<center>preview</center>](data/no_mortgage.csv)|
 |[Key policy rate](#key-policy-rate)|Norges Bank|1991 - Present|2025-01-31|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv)|[<center>preview</center>](data/no_keyPolicyRate.csv)|
-|[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2025-02-02|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
+|[NOWA](#nowa---norwegian-overnight-weighted-average)|Norges Bank|2011 - Present|2025-02-03|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_nowa.csv)|[<center>preview</center>](data/no_nowa.csv)|
 |[Exchange Rates](#exchange-rates)|Norges Bank|1980 - Present|2025-02-01|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_exchangeRates.csv)|[<center>preview</center>](data/no_exchangeRates.csv)|
 |[Inflation Indicators (CPI)](#inflation-indicators-cpi)|Norges Bank|2006 - Present|2025-01-11|[<center>csv</center>](https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_cpi.csv)|[<center>preview</center>](data/no_cpi.csv)|
 <!-- table ends -->
