@@ -15,7 +15,7 @@
     "dataset_detail": "#key-policy-rate",
     "source": "Norges Bank",
     "date_range": "1991 - Present",
-    "last_updated": "2025-03-31",
+    "last_updated": "2025-04-01",
     "link_preview": "data/no_keyPolicyRate.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv"
   },
