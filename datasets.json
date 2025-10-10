@@ -15,7 +15,7 @@
     "dataset_detail": "#key-policy-rate",
     "source": "Norges Bank",
     "date_range": "1991 - Present",
-    "last_updated": "2025-10-09",
+    "last_updated": "2025-10-10",
     "link_preview": "data/no_keyPolicyRate.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_keyPolicyRate.csv"
   },
@@ -45,7 +45,7 @@
     "dataset_detail": "#inflation-indicators-cpi",
     "source": "Norges Bank",
     "date_range": "2006 - Present",
-    "last_updated": "2025-09-10",
+    "last_updated": "2025-10-10",
     "link_preview": "data/no_cpi.csv",
     "link_csv": "https://raw.githubusercontent.com/frefrik/norway-finance-statistics/master/data/no_cpi.csv"
   }
