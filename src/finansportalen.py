@@ -1,10 +1,4 @@
-import json
-import os
-import re
-import xml.etree.ElementTree as ET
 from datetime import date
-from io import StringIO
-from urllib.parse import urlencode
 
 import pandas as pd
 import requests
@@ -12,62 +6,62 @@ import requests
 
 class Mortgage:
     COLUMNS = {
-        "leverandor_tekst": "bank",
-        "navn": "product_name",
-        "effektiv_rente": "rate_effective",
-        "valgt_rente": "rate_nominal",
-        "mndbelop": "monthly",
-        "totalkostnad": "total_cost",
-        "kostnad1ar": "first_year_cost",
-        "etableringsgebyr_for_lanet": "establishment_fee",
+        "companyName": "bank",
+        "name": "product_name",
+        "effectiveInterestRate": "rate_effective",
+        "nominalInterestRate": "rate_nominal",
+        "monthlyPayment": "monthly",
+        "estimatedTotalPayment": "total_cost",
+        "firstYearCost": "first_year_cost",
+        "establishmentFee": "establishment_fee",
     }
 
     def __init__(self, params):
         self.params = params
-        self.base_url = "https://www.finansportalen.no/feed/v3/bank/boliglan_toppN.atom"
-        self.xmlns = "{http://www.w3.org/2005/Atom}"
+        self.api_url = "https://finans-api.forbrukerradet.no/bankprodukt/boliglan"
 
-    def _get_xml(self):
-        params = urlencode(self.params)
-        url = f"{self.base_url}?{params}"
-
-        res = requests.get(
-            url,
-            auth=(os.getenv("FP_USERNAME"), os.getenv("FP_PASSWORD")),
+    def _fetch_data(self):
+        """Fetch mortgage data from API."""
+        response = requests.get(
+            self.api_url, headers={"Accept": "application/json"}, params=self.params, timeout=30
         )
-
-        if res.status_code == 200:
-            return res.content
-        else:
-            return None
+        response.raise_for_status()
+        return response.json()
 
     def get_dataframe(self):
-        xml = self._get_xml()
+        """Get data and convert to DataFrame."""
+        try:
+            data = self._fetch_data()
 
-        if xml:
-            tree = ET.fromstring(xml).findall(f"{self.xmlns}entry")
+            if not data:
+                return pd.DataFrame()
 
-            listings = {}
-            count = 0
+            df = pd.DataFrame(data)
 
-            for entries in tree:
-                count += 1
-                listings.update(
-                    {
-                        count: {
-                            re.sub("{[^>]+}", "", entry.tag): entry.text.strip()
-                            for entry in entries
-                            if entry.text
-                        }
-                    }
-                )
+            # Extract establishment fee from nested product
+            df["establishmentFee"] = df["product"].apply(
+                lambda x: x.get("establishmentFeeForLoan", 0) if isinstance(x, dict) else 0
+            )
 
-            _json = json.dumps(listings, indent=2, separators=(",", ": "))
+            # Compute first year cost
+            df["firstYearCost"] = df["monthlyPayment"] * 12
 
-            df = pd.read_json(StringIO(_json), orient="index")
-            df = df[self.COLUMNS.keys()].rename(columns=self.COLUMNS)
+            # Debug: show only the columns we'll keep
+            debug_cols = [col for col in self.COLUMNS if col in df.columns]
+            print(df[debug_cols])
+            df[debug_cols].to_csv("df.csv", index=False)
+
+            # Select and rename columns
+            existing = [col for col in self.COLUMNS if col in df.columns]
+            df = df[existing].rename(columns=self.COLUMNS)
+
+            # Strip whitespace from product name
+            df["product_name"] = df["product_name"].str.strip()
+
             df.insert(0, "date", pd.to_datetime(date.today()))
 
             return df
-        else:
-            return None
+
+        except Exception as e:
+            print(f"Error fetching mortgage data: {e}")
+            return pd.DataFrame()

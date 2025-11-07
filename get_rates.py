@@ -38,32 +38,40 @@ def write_last_updated(dataset):
 
 def mortgage():
     dataset = "no_mortgage"
+    file_path = f"./data/{dataset}.csv"
+
     params = {
-        "lanebelop": 5000000,
-        "boligverdi": 7200000,
-        "nedbetalingstid": 20,
-        "alder": 36,
-        "rentetype": "flytende_rente",
-        "markedsomrade": "nasjonalt",
-        "medlemskap": "nei",
-        "n": 10,
+        "loanAmount": 5000000,
+        "purchasePrice": 7200000,
+        "paymentPeriod": 20,
+        "age": 36,
+        "interestType": "Flytende",
+        "isSalaryRequired": "true",
+        "marketRegion[0]": "NationWide",
+        "membershipType[0]": "None",
+        "requiredProductTypes[0]": "None",
     }
 
-    if path.exists(f"./data/{dataset}.csv"):
-        df = pd.read_csv(f"./data/{dataset}.csv", parse_dates=["date"])
-        date_last = max(df["date"]).date()
+    if path.exists(file_path):
+        df = pd.read_csv(file_path, parse_dates=["date"])
+        date_last = df["date"].max().date()
     else:
         df = pd.DataFrame()
         date_last = date.today() - timedelta(days=1)
 
-    delta = get_dates(date_last)
-
-    if delta[2] > 0:
+    if date_last < date.today():
         df_new = Mortgage(params).get_dataframe()
-        df = pd.concat([df, df_new], ignore_index=True)
 
-        write_df(dataset, df)
-        write_last_updated(dataset)
+        if df_new is not None and not df_new.empty:
+            df_new = df_new.sort_values(
+                ["rate_effective", "first_year_cost", "bank"], ascending=[True, True, True]
+            ).head(10)
+
+            df = pd.concat([df, df_new], ignore_index=True)
+            write_df(dataset, df)
+            write_last_updated(dataset)
+        else:
+            print("No new mortgage data received")
     else:
         print("Data already up to date:", dataset)
 
@@ -122,9 +130,7 @@ def nibor():
         df_panel["Date"] = pd.to_datetime(df_panel["Date"])
         df_panel["Calculation Date"] = pd.to_datetime(df_panel["Calculation Date"])
 
-        df_fixed = df_panel.pivot(
-            index="Date", columns="Tenor", values="Fixing Rate"
-        ).reset_index()
+        df_fixed = df_panel.pivot(index="Date", columns="Tenor", values="Fixing Rate").reset_index()
         df_fixed = df_fixed.reindex(
             columns=["Date", "1 Week", "1 Month", "2 Months", "3 Months", "6 Months"]
         ).rename_axis(None, axis=1)
@@ -194,9 +200,7 @@ def keyPolicyRate():
                 usecols=["TIME_PERIOD", "OBS_VALUE"],
             )
 
-            df_new.rename(
-                columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True
-            )
+            df_new.rename(columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True)
 
             df = pd.concat([df, df_new], ignore_index=True)
 
@@ -248,9 +252,7 @@ def nowa():
                 inplace=True,
             )
 
-            qualifier = df_new[["Date", "Qualifier"]].loc[
-                df_new["Unit of Measure"] == "Rate"
-            ]
+            qualifier = df_new[["Date", "Qualifier"]].loc[df_new["Unit of Measure"] == "Rate"]
             df_pivot = pd.pivot_table(
                 df_new, index="Date", columns="Unit of Measure", values="Value"
             )
@@ -306,9 +308,7 @@ def treasuryBills():
                 usecols=["TIME_PERIOD", "Tenor", "OBS_VALUE"],
             )
 
-            df_new.rename(
-                columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True
-            )
+            df_new.rename(columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True)
 
             df_new = pd.pivot_table(
                 df_new, index="Date", columns="Tenor", values="Rate"
@@ -352,16 +352,14 @@ def governmentBonds():
                 usecols=["TIME_PERIOD", "Tenor", "OBS_VALUE"],
             )
 
-            df_new.rename(
-                columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True
-            )
+            df_new.rename(columns={"TIME_PERIOD": "Date", "OBS_VALUE": "Rate"}, inplace=True)
 
             df_new = pd.pivot_table(
                 df_new, index="Date", columns="Tenor", values="Rate"
             ).reset_index()
-            df_new = df_new.reindex(
-                columns=["Date", "3 years", "5 years", "10 years"]
-            ).rename_axis(None, axis=1)
+            df_new = df_new.reindex(columns=["Date", "3 years", "5 years", "10 years"]).rename_axis(
+                None, axis=1
+            )
 
             df = pd.concat([df, df_new], ignore_index=True)
 
@@ -442,9 +440,7 @@ def inflation_indicators():
     )
 
     last_record_date = df["month"].max() if not df.empty else pd.Timestamp(2005, 12, 1)
-    next_update_date = (
-        (last_record_date + pd.DateOffset(months=2)).replace(day=10).date()
-    )
+    next_update_date = (last_record_date + pd.DateOffset(months=2)).replace(day=10).date()
 
     if today < next_update_date:
         print(f"Data is up to date. Next update expected on {next_update_date}")
