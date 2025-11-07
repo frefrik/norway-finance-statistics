@@ -1,5 +1,5 @@
-altair[all]==5.4.1
-git+https://github.com/PaleNeutron/altair_saver.git
-mdutils==1.6.0
-pandas==2.2.2
-requests==2.32.3
+altair==5.5.0
+mdutils==1.8.1
+pandas==2.3.3
+requests==2.32.5
+vl-convert-python==1.8.0
