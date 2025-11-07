@@ -58,7 +58,7 @@ def keyPolicyRate():
     df = pd.read_csv("./data/no_keyPolicyRate.csv", parse_dates=["Date"])
 
     chart = (
-        alt.Chart(df, title="Key policy rate, 1991 - current")
+        alt.Chart(df, title="Key policy rate, 1991 - Present")
         .mark_line()
         .encode(
             x=alt.X("year(Date):O", axis=alt.Axis(title="Dato", labelAngle=-45)),
@@ -155,7 +155,7 @@ def exchangeRates():
     df = df[df.Date >= "2020-01-01"]
 
     chart = (
-        alt.Chart(df, title="Exchange Rates, 2020 - current")
+        alt.Chart(df, title="Exchange Rates, 2020 - Present")
         .mark_line()
         .encode(
             x=alt.X(
@@ -280,7 +280,7 @@ def inflation_indicators():
             width=1200,
             height=600,
             title={
-                "text": "Norwegian Inflation Indicators (2006-2024)",
+                "text": "Norwegian Inflation Indicators (2006 - Present)",
                 "subtitle": "CPI, CPI-ATE, and CPIXE | Source: Norges Bank",
                 "subtitleFontSize": 14,
                 "anchor": "start",
